@@ -4,10 +4,18 @@ namespace laureandosi;
 
 class API
 {
+    private ParametriConfigurazione $parametri_configurazione;
+    private GeneratoreReportPDF $generatore_report;
+    private string $report_path = ABSPATH . DIRECTORY_SEPARATOR . 'report';
+
     public function __construct()
     {
-        require_once "ParametriConfigurazione.php";
-        require_once "Laureando.php";
+        require_once("ParametriConfigurazione.php");
+        require_once("Laureando.php");
+        require_once("GeneratoreReportPDF.php");
+
+        $this->parametri_configurazione = new ParametriConfigurazione();
+        $this->generatore_report = new GeneratoreReportPDF();
     }
 
     public function test()
@@ -17,9 +25,8 @@ class API
 
     public function GETCorsiDiLaurea()
     {
-        $parametri_configurazione = new ParametriConfigurazione();
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            $val = array_values($parametri_configurazione->getCorsiDiLaurea());
+            $val = array_values($this->parametri_configurazione->getCorsiDiLaurea());
 
             for ($i = 0; $i < count($val); $i++) {
                 $val[$i] = array_filter(
@@ -40,12 +47,27 @@ class API
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data = json_decode(file_get_contents('php://input'), true);
 
-            $laureandi = array();
+            $path = join(DIRECTORY_SEPARATOR, array(
+                $this->report_path,
+                $data["data_laurea"],
+                $data["corso_laurea"],
+            ));
 
-            foreach ($data["matricole"] as $matricola) {
-                $laureandi[] = new Laureando((int)$matricola, $data["corso_laurea"]);
+            if (!file_exists($path)) {
+                mkdir($path, 0777, true);
             }
-            return json_encode($laureandi);
+
+            $laureandi = array();
+            foreach ($data["matricole"] as $matricola) {
+                $laureando = new Laureando((int)$matricola, $data["corso_laurea"], $data["data_laurea"]);
+                $this->generatore_report->generaReportPDFLaureando($laureando)->Output(
+                    'F',
+                    $path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf'
+                );
+                $laureandi[] = $laureando;
+            }
+
+            return json_encode(array("msg" => count($laureandi) . " prospetti creati con successo."));
         }
         return http_response_code(405);
     }

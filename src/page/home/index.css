@@ -46,10 +46,15 @@ article > section {
     "b c e"
     "b c f"
     ". c f";
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
 }
 #form-input > div {
-    margin: auto;
     position: relative;
+    margin: 0;
+    width: min-content;
+    height: min-content;
 }
 #form-input > div:nth-child(1){grid-area: a;}
 #form-input > div:nth-child(2){grid-area: b;}
@@ -88,7 +93,7 @@ input[type=number], input[type=text], input[type=email], input[type=date], input
     color: var(--text-color);
     border-radius: 4px;
     display: block;
-    margin: 20px 0 10px 0;
+    margin: 11px 0 0 0;
     min-width: 250px;
 }
 input[type=text]:disabled, input[type=date]:disabled, textarea:disabled, select:disabled, button:disabled {
@@ -116,7 +121,32 @@ input[type=number] + label, input[type=text] + label, input[type=date] + label, 
     font-weight: normal;
     position: absolute;
     background-color: var(--background-color);
-    top: 11px;
+    top: 2px;
     left: 25px;
     user-select: none;
+}
+#toast {
+    visibility: hidden;
+    opacity: 0;
+    min-width: 150px;
+    max-width: 350px;
+    background-color: var(--card-color);
+    box-shadow: 0 0 10px var(--background-color);
+    border: 1px solid var(--background-color);
+    border-radius: 4px;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    right: 0;
+    margin: 0 5%;
+    top: -53px;
+    user-select: none;
+    transition: all 0.5s;
+}
+#toast.active {
+    opacity: 100;
+    top: 25px;
+    visibility: visible;
 }

@@ -5,7 +5,26 @@ const BUTTON_crea_prospetti = document.querySelector("#form-input #crea_prospett
 const BUTTON_apri_prospetti = document.querySelector("#form-input #apri_prospetti");
 const BUTTON_invia_prospetti = document.querySelector("#form-input #invia_prospetti");
 
+function showToast(message)
+{
+    let toast = document.createElement('div');
+    toast.id = 'toast';
 
+    time = message.split(" ").length * 600;
+
+    toast.appendChild(document.createTextNode(message));
+    document.body.appendChild(toast);
+
+    setTimeout(function () {
+        toast.classList.add("active");
+        setTimeout(function () {
+            toast.classList.remove("active");
+            setTimeout(function () {
+                document.body.removeChild(toast);
+            }, time + 500);
+        },time);
+    }, 500);
+}
 
 document.addEventListener("DOMContentLoaded", () => {
     fetch("?api=GETCorsiDiLaurea")
@@ -56,6 +75,6 @@ BUTTON_crea_prospetti.addEventListener("click", (e) => {
         })
     })
     .then((res) => res.json())
-    .then((res) => console.log(res));
+    .then((res) => showToast(res.msg));
 });
 

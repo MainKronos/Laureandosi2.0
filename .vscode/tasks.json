@@ -11,6 +11,7 @@
 				"--standard=PSR12",
 				"--report=emacs",
 				"--basepath=${workspaceFolder}",
+				"--ignore=src/lib",
 				"${workspaceFolder}"
 			],
 			"problemMatcher": [
@@ -44,6 +45,7 @@
 				"--standard=PSR12",
 				"--report=emacs",
 				"--basepath=${workspaceFolder}",
+				"--ignore=./src/lib",
 				"${workspaceFolder}"
 			],
 			"problemMatcher": [
