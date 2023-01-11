@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+	<meta charset="UTF-8">
+	<title>Laureandosi 2.0</title>
+	<link rel="stylesheet" href="index.css">
+	
+</head>
+<body>
+	<header>
+		<h1>Laureandosi 2.0</h1>
+	</header>
+	<main>
+		<article>
+			<h2>Gestione Lauree</h2>
+			<section id="form-input">
+				<div>
+					<select name="corso_laurea" id="corso_laurea" required disabled>
+						<option value="">--Seleziona corso Laurea--</option>
+					</select>
+					<label for="corso_laurea">Corso di Laurea</label>
+				</div>
+				<div>
+					<input type="date" name="data_laurea" id="data_laurea" required disabled>
+					<label for="data_laurea">Data di Laurea</label>
+				</div>
+
+				<div>
+					<textarea name="matricole" id="matricole" rows="18" required disabled></textarea>
+					<label>Matricole</label>
+				</div>
+
+				<div>
+					<button type="button" id="crea_prospetti" disabled>Crea Prospetti</button>
+				</div>
+				<div>
+					<button type="button" id="apri_prospetti">Apri Prospetti</button>
+				</div>
+				<div>
+					<button type="button" id="invia_prospetti">Invia Prospetti</button>
+				</div>
+
+			</section>
+		</article>
+	</main>
+	<footer>
+		<p>Footer</p>
+	</footer>
+	<script src="index.js"></script>
+</body>
+</html>

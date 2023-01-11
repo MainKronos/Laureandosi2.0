@@ -1,0 +1,11 @@
+{
+	"Entries": {
+		"Entry": {
+			"nome": "PINCO",
+			"cognome": "PALLINO",
+			"cod_fis": "ABCDEFX12X12X123X",
+			"data_nascita": "1999-05-01T00:00:00.000+01:00",
+			"email_ate": "p.pallino@studenti.unipi.it"
+		}
+	}
+}
