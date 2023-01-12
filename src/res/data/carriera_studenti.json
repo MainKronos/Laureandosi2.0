@@ -2,60 +2,21 @@
 	"Esami": {
 	  "Esame": [
 		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
 		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
 		  "STA_STU_COD": "X",
 		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "915II",
-		  "DES": "NANOELETTRONICA E FOTONICA",
-		  "DATA_ESAME": "02/07/2020",
-		  "VOTO": "20 ",
-		  "RIC_ID": 0,
-		  "TIPO_RIC": {
-			"@nil": "true"
-		  },
-		  "DES_RIC": {
-			"@nil": "true"
-		  },
-		  "GIUDIZIO": {
-			"@nil": "true"
-		  },
-		  "PESO": 9,
-		  "PIANO": {
-			"@nil": "true"
-		  },
-		  "ABBR_FLG": 0,
-		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 2,
-		  "adsce_id": 10791188
-		},
-		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
-		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
-		  "STA_STU_COD": "X",
-		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "317II",
-		  "DES": "SISTEMI DI ELABORAZIONE",
-		  "DATA_ESAME": "08/07/2020",
-		  "VOTO": "28 ",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "374II",
+		  "DES": "INGEGNERIA DEL SOFTWARE",
+		  "DATA_ESAME": "01/02/2021",
+		  "VOTO": "30 ",
 		  "RIC_ID": 0,
 		  "TIPO_RIC": {
 			"@nil": "true"
@@ -70,27 +31,58 @@
 		  "PIANO": "Y",
 		  "ABBR_FLG": 0,
 		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 2,
-		  "adsce_id": 10794387
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11108256
 		},
 		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
 		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
 		  "STA_STU_COD": "X",
 		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "307II",
-		  "DES": "ELETTRONICA ANALOGICA",
-		  "DATA_ESAME": "09/04/2021",
-		  "VOTO": "19 ",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "TEST1",
+		  "DES": "TEST DI VALUTAZIONE DI INGEGNERIA",
+		  "DATA_ESAME": "02/09/2019",
+		  "VOTO": null,
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": "Idoneo",
+		  "PESO": 2,
+		  "PIANO": {
+			"@nil": "true"
+		  },
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 1,
+		  "ANNO_CORSO": 0,
+		  "adsce_id": 10480774
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "545II",
+		  "DES": "RETI INFORMATICHE",
+		  "DATA_ESAME": "03/11/2022",
+		  "VOTO": "26 ",
 		  "RIC_ID": 0,
 		  "TIPO_RIC": {
 			"@nil": "true"
@@ -105,61 +97,24 @@
 		  "PIANO": "Y",
 		  "ABBR_FLG": 0,
 		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 1,
-		  "adsce_id": 10220937
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11814936
 		},
 		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
 		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
 		  "STA_STU_COD": "X",
 		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "309II",
-		  "DES": "ELETTRONICA DELLE TELECOMUNICAZIONI",
-		  "DATA_ESAME": "11/01/2021",
-		  "VOTO": "27 ",
-		  "RIC_ID": 0,
-		  "TIPO_RIC": {
-			"@nil": "true"
-		  },
-		  "DES_RIC": {
-			"@nil": "true"
-		  },
-		  "GIUDIZIO": {
-			"@nil": "true"
-		  },
-		  "PESO": 9,
-		  "PIANO": "Y",
-		  "ABBR_FLG": 0,
-		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 1,
-		  "adsce_id": 10220936
-		},
-		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
-		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
-		  "STA_STU_COD": "X",
-		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "314II",
-		  "DES": "PROGETTAZIONE DI SISTEMI DIGITALI",
-		  "DATA_ESAME": "13/01/2020",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "756II",
+		  "DES": "ALGORITMI E STRUTTURE DATI",
+		  "DATA_ESAME": "05/10/2020",
 		  "VOTO": "30 ",
 		  "RIC_ID": 0,
 		  "TIPO_RIC": {
@@ -171,30 +126,61 @@
 		  "GIUDIZIO": {
 			"@nil": "true"
 		  },
+		  "PESO": 6,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 1,
+		  "adsce_id": 10612313
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "078II",
+		  "DES": "CALCOLATORI ELETTRONICI",
+		  "DATA_ESAME": "06/07/2022",
+		  "VOTO": "21 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
 		  "PESO": 9,
 		  "PIANO": "Y",
 		  "ABBR_FLG": 0,
 		  "SOVRAN_FLG": 0,
 		  "ANNO_CORSO": 2,
-		  "adsce_id": 10681482
+		  "adsce_id": 11620016
 		},
 		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
 		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
 		  "STA_STU_COD": "X",
 		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "313II",
-		  "DES": "PROGETTAZIONE DI SENSORI E MICROSISTEMI",
-		  "DATA_ESAME": "15/04/2021",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "075II",
+		  "DES": "COMUNICAZIONI NUMERICHE",
+		  "DATA_ESAME": "06/10/2022",
 		  "VOTO": "24 ",
 		  "RIC_ID": 0,
 		  "TIPO_RIC": {
@@ -210,131 +196,24 @@
 		  "PIANO": "Y",
 		  "ABBR_FLG": 0,
 		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 2,
-		  "adsce_id": 11167164
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11779239
 		},
 		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
 		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
 		  "STA_STU_COD": "X",
 		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "311II",
-		  "DES": "SISTEMI EMBEDDED",
-		  "DATA_ESAME": "17/09/2020",
-		  "VOTO": "28 ",
-		  "RIC_ID": 0,
-		  "TIPO_RIC": {
-			"@nil": "true"
-		  },
-		  "DES_RIC": {
-			"@nil": "true"
-		  },
-		  "GIUDIZIO": {
-			"@nil": "true"
-		  },
-		  "PESO": 9,
-		  "PIANO": "Y",
-		  "ABBR_FLG": 0,
-		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 2,
-		  "adsce_id": 10879990
-		},
-		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
-		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
-		  "STA_STU_COD": "X",
-		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "274ZW",
-		  "DES": "PROVA FINALE",
-		  "DATA_ESAME": "18/02/2022",
-		  "VOTO": "30 ",
-		  "RIC_ID": 0,
-		  "TIPO_RIC": {
-			"@nil": "true"
-		  },
-		  "DES_RIC": {
-			"@nil": "true"
-		  },
-		  "GIUDIZIO": {
-			"@nil": "true"
-		  },
-		  "PESO": 18,
-		  "PIANO": "Y",
-		  "ABBR_FLG": 0,
-		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 2,
-		  "adsce_id": 11528406
-		},
-		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
-		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
-		  "STA_STU_COD": "X",
-		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "098II",
-		  "DES": "DISPOSITIVI ELETTRONICI",
-		  "DATA_ESAME": "20/06/2019",
-		  "VOTO": "24 ",
-		  "RIC_ID": 0,
-		  "TIPO_RIC": {
-			"@nil": "true"
-		  },
-		  "DES_RIC": {
-			"@nil": "true"
-		  },
-		  "GIUDIZIO": {
-			"@nil": "true"
-		  },
-		  "PESO": 9,
-		  "PIANO": "Y",
-		  "ABBR_FLG": 0,
-		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 1,
-		  "adsce_id": 10371487
-		},
-		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
-		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
-		  "STA_STU_COD": "X",
-		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "310II",
-		  "DES": "ELETTRONICA DI POTENZA E DI CONTROLLO",
-		  "DATA_ESAME": "22/04/2020",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "173AA",
+		  "DES": "CALCOLO NUMERICO",
+		  "DATA_ESAME": "08/02/2021",
 		  "VOTO": "26 ",
 		  "RIC_ID": 0,
 		  "TIPO_RIC": {
@@ -350,27 +229,190 @@
 		  "PIANO": "Y",
 		  "ABBR_FLG": 0,
 		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 1,
-		  "adsce_id": 10220934
+		  "ANNO_CORSO": 2,
+		  "adsce_id": 11114610
 		},
 		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
 		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
 		  "STA_STU_COD": "X",
 		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "315II",
-		  "DES": "PROGETTAZIONE DI SISTEMI MICROELETTRONICI",
-		  "DATA_ESAME": "23/09/2019",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "257AA",
+		  "DES": "PROGRAMMAZIONE DI INTERFACCE",
+		  "DATA_ESAME": "11/12/2021",
+		  "VOTO": "30 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 6,
+		  "PIANO": {
+			"@nil": "true"
+		  },
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11469660
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "076II",
+		  "DES": "ELETTRONICA DIGITALE",
+		  "DATA_ESAME": "12/07/2022",
+		  "VOTO": "18 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 9,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11622985
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "544II",
+		  "DES": "SISTEMI OPERATIVI",
+		  "DATA_ESAME": "12/09/2022",
 		  "VOTO": "24 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 9,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11706898
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "1717Z",
+		  "DES": "PROVA DI LINGUA INGLESE B2",
+		  "DATA_ESAME": "12/11/2020",
+		  "VOTO": null,
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": "Idoneo",
+		  "PESO": 3,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11037736
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "170AA",
+		  "DES": "RICERCA OPERATIVA",
+		  "DATA_ESAME": "13/01/2022",
+		  "VOTO": "18 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 9,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 2,
+		  "adsce_id": 11209042
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "591AA",
+		  "DES": "ALGEBRA LINEARE E ANALISI MATEMATICA II",
+		  "DATA_ESAME": "13/07/2020",
+		  "VOTO": "30 ",
 		  "RIC_ID": 0,
 		  "TIPO_RIC": {
 			"@nil": "true"
@@ -386,60 +428,23 @@
 		  "ABBR_FLG": 0,
 		  "SOVRAN_FLG": 0,
 		  "ANNO_CORSO": 1,
-		  "adsce_id": 10220938
+		  "adsce_id": 10612314
 		},
 		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
 		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
 		  "STA_STU_COD": "X",
 		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "318II",
-		  "DES": "TECNOLOGIE MICROELETTRONICHE",
-		  "DATA_ESAME": "27/02/2019",
-		  "VOTO": "20 ",
-		  "RIC_ID": 0,
-		  "TIPO_RIC": {
-			"@nil": "true"
-		  },
-		  "DES_RIC": {
-			"@nil": "true"
-		  },
-		  "GIUDIZIO": {
-			"@nil": "true"
-		  },
-		  "PESO": 6,
-		  "PIANO": "Y",
-		  "ABBR_FLG": 0,
-		  "SOVRAN_FLG": 0,
-		  "ANNO_CORSO": 1,
-		  "adsce_id": 10220940
-		},
-		{
-		  "MATRICOLA": 234567,
-		  "DES_CAT": {
-			"@nil": "true"
-		  },
-		  "NOME": "ALESSANDRO BASTONI",
-		  "COD_FIS": "ABCDEFX12X12X123X",
-		  "INIZIO_CARRIERA": "24/10/2018",
-		  "ANNO_IMM": 2018,
-		  "DATA_CHIUSURA": "18/02/2022",
-		  "AA_CHIUSURA": 2020,
-		  "STA_STU_COD": "X",
-		  "MOT_STASTU_COD": "TIT",
-		  "CORSO": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		  "COD": "319II",
-		  "DES": "TELECOMUNICAZIONI",
-		  "DATA_ESAME": "29/01/2019",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "862II",
+		  "DES": "FONDAMENTI DI PROGRAMMAZIONE",
+		  "DATA_ESAME": "16/01/2020",
 		  "VOTO": "25 ",
 		  "RIC_ID": 0,
 		  "TIPO_RIC": {
@@ -456,7 +461,368 @@
 		  "ABBR_FLG": 0,
 		  "SOVRAN_FLG": 0,
 		  "ANNO_CORSO": 1,
-		  "adsce_id": 10220935
+		  "adsce_id": 10612316
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "304ZZ",
+		  "DES": "PROVA FINALE",
+		  "DATA_ESAME": "18/11/2022",
+		  "VOTO": "29 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 3,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11825252
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "073II",
+		  "DES": "ELETTROTECNICA",
+		  "DATA_ESAME": "20/09/2021",
+		  "VOTO": "18 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 6,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 2,
+		  "adsce_id": 11357501
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "074II",
+		  "DES": "RETI LOGICHE",
+		  "DATA_ESAME": "23/02/2022",
+		  "VOTO": "25 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 9,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 2,
+		  "adsce_id": 11541200
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "080II",
+		  "DES": "PROGETTAZIONE WEB",
+		  "DATA_ESAME": "23/09/2021",
+		  "VOTO": "27 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 6,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 2,
+		  "adsce_id": 11363349
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "011BB",
+		  "DES": "FISICA GENERALE I",
+		  "DATA_ESAME": "24/02/2021",
+		  "VOTO": "24 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 12,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 1,
+		  "adsce_id": 10612312
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "861II",
+		  "DES": "BASI DI DATI",
+		  "DATA_ESAME": "26/11/2020",
+		  "VOTO": "27 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 9,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 1,
+		  "adsce_id": 10612315
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "004AA",
+		  "DES": "ANALISI MATEMATICA I",
+		  "DATA_ESAME": "28/02/2020",
+		  "VOTO": "25 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 12,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 1,
+		  "adsce_id": 10480299
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "245AA",
+		  "DES": "CRITTOGRAFIA",
+		  "DATA_ESAME": "28/03/2022",
+		  "VOTO": "28 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 6,
+		  "PIANO": {
+			"@nil": "true"
+		  },
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11475994
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "116II",
+		  "DES": "ECONOMIA E ORGANIZZAZIONE AZIENDALE",
+		  "DATA_ESAME": "28/07/2021",
+		  "VOTO": "29 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 6,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 2,
+		  "adsce_id": 11245473
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "077II",
+		  "DES": "FONDAMENTI DI AUTOMATICA",
+		  "DATA_ESAME": "29/11/2021",
+		  "VOTO": "28 ",
+		  "RIC_ID": 0,
+		  "TIPO_RIC": {
+			"@nil": "true"
+		  },
+		  "DES_RIC": {
+			"@nil": "true"
+		  },
+		  "GIUDIZIO": {
+			"@nil": "true"
+		  },
+		  "PESO": 9,
+		  "PIANO": "Y",
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 0,
+		  "ANNO_CORSO": 2,
+		  "adsce_id": 11467078
+		},
+		{
+		  "MATRICOLA": 345678,
+		  "DES_CAT": "Ordinario ",
+		  "NOME": "NICCOLO BARELLA",
+		  "COD_FIS": "ABCDEFX12X12X123X",
+		  "INIZIO_CARRIERA": "29/07/2019",
+		  "ANNO_IMM": 2019,
+		  "DATA_CHIUSURA": "18/11/2022",
+		  "AA_CHIUSURA": 2021,
+		  "STA_STU_COD": "X",
+		  "MOT_STASTU_COD": "TIT",
+		  "CORSO": "INGEGNERIA INFORMATICA (IFO-L)",
+		  "COD": "212ZW",
+		  "DES": "LIBERA SCELTA PER RICONOSCIMENTI",
+		  "DATA_ESAME": "30/03/2022",
+		  "VOTO": null,
+		  "RIC_ID": 2,
+		  "TIPO_RIC": "S",
+		  "DES_RIC": "Ricon. per tirocinio o stage",
+		  "GIUDIZIO": "Idoneo",
+		  "PESO": 6,
+		  "PIANO": {
+			"@nil": "true"
+		  },
+		  "ABBR_FLG": 0,
+		  "SOVRAN_FLG": 1,
+		  "ANNO_CORSO": 3,
+		  "adsce_id": 11561502
 		}
 	  ]
 	}

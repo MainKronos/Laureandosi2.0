@@ -76,7 +76,17 @@ BUTTON_crea_prospetti.addEventListener("click", (e) => {
     })
     .then((res) => res.ok ? res.json() : Promise.reject(res))
     .then((res) => showToast(res.message))
-	.catch((err) => err.json())
-	.then((err) => showToast(err.message, true));
+    .catch((err) => err.json())
+    .then((err) => showToast(err.message, true));
 });
 
+
+BUTTON_apri_prospetti.addEventListener("click", (e) => {
+	fetch("?api=GETApriProspetto&corso_laurea=" + SELECT_corso_laurea.value + "&data_laurea=" + DATE_data_laurea.value) 
+	.then((res) => res.ok ? res.blob() : Promise.reject(res))
+	.catch((err) => err.json()
+		.then((err) => showToast(err.message, true))
+	)
+	.then((res) => window.open(window.URL.createObjectURL(res), '_blank')).focus()
+	
+});

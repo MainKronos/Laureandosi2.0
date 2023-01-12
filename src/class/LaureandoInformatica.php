@@ -7,7 +7,7 @@ class LaureandoInformatica extends Laureando
     public function __construct(int $matricola, string $CdL, \DateTime $data_laurea)
     {
         parent::__construct($matricola, $CdL, $data_laurea);
-        $esame_bonus =& $this->getEsameBonus();
+        $esame_bonus = $this->getEsameBonus();
         if (!is_null($esame_bonus)) {
             $esame_bonus->in_avg = false;
         }
@@ -28,7 +28,7 @@ class LaureandoInformatica extends Laureando
         return !date_diff($this->data_laurea, $data_limite)->invert;
     }
 
-    private function &getEsameBonus(): ?Esame
+    private function getEsameBonus(): ?Esame
     {
         if (!$this->getBonusINF()) {
             return null;

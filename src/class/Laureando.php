@@ -39,11 +39,11 @@ class Laureando
             },
             ARRAY_FILTER_USE_KEY
         ));
-		if(count($filtro_esami) == 2){
-			$filtro_esami = array_merge_recursive($filtro_esami[0], $filtro_esami[1]);
-		}else{
-			$filtro_esami = $filtro_esami[0];
-		}
+        if (count($filtro_esami) == 2) {
+            $filtro_esami = array_merge_recursive($filtro_esami[0], $filtro_esami[1]);
+        } else {
+            $filtro_esami = $filtro_esami[0];
+        }
 
         $carriera = $this->gestore_carriera->getCarriera($matricola);
         $this->esami = array();
@@ -72,9 +72,9 @@ class Laureando
                 );
             }
         }
-		if (count($this->esami) == 0) {
-			throw new \Exception("Errore: Corso di laurea non corretto per la matricola $matricola.");
-		}
+        if (count($this->esami) == 0) {
+            throw new \Exception("Errore: Corso di laurea non corretto per la matricola $matricola.");
+        }
     }
 
    /**
@@ -84,9 +84,9 @@ class Laureando
     */
     public function getMediaPesata(): float
     {
-        return round(array_reduce($this->esami, function ($acc, $esame) {
+        return array_reduce($this->esami, function ($acc, $esame) {
             return $acc + $esame->voto * $esame->cfu * $esame->in_avg;
-        }, 0) / $this->getCFUInAVG(), 3);
+        }, 0) / $this->getCFUInAVG();
     }
 
     /**
