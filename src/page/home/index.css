@@ -46,15 +46,19 @@ article > section {
     "b c e"
     "b c f"
     ". c f";
-    gap: 10px;
+    gap: 30px;
     align-items: center;
     justify-items: center;
+    padding: 15px 30px;
 }
 #form-input > div {
     position: relative;
-    margin: 0;
-    width: min-content;
+    width: 100%;
     height: min-content;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
 }
 #form-input > div:nth-child(1){grid-area: a;}
 #form-input > div:nth-child(2){grid-area: b;}
@@ -66,7 +70,7 @@ article > section {
     resize: none;
 }
 button {
-    width: 200px;
+    min-width: 200px;
     margin: 10px 0;
     border: 2px solid var(--alt-color);
     background-color: transparent;
@@ -130,9 +134,9 @@ input[type=number] + label, input[type=text] + label, input[type=date] + label, 
     opacity: 0;
     min-width: 150px;
     max-width: 350px;
-    background-color: var(--card-color);
-    box-shadow: 0 0 10px var(--background-color);
-    border: 1px solid var(--background-color);
+    background-color: var(--background-color);
+    box-shadow: 0 0 10px var(--base-color);
+    border: 1px solid var(--base-color);
     border-radius: 4px;
     color: rgba(255,255,255,0.7);
     text-align: center;
@@ -149,4 +153,9 @@ input[type=number] + label, input[type=text] + label, input[type=date] + label, 
     opacity: 100;
     top: 25px;
     visibility: visible;
+}
+
+.error {
+	color: var(--primary-color) !important;
+	font-weight: 600;
 }

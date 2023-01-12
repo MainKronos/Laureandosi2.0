@@ -14,7 +14,7 @@ class ParametriConfigurazione
     public function getEsamiInformatici(): array
     {
         return json_decode(
-            file_get_contents($this->path . DIRECTORY_SEPARATOR . "filtro_esami.json", true),
+            file_get_contents($this->path . DIRECTORY_SEPARATOR . "esami_informatici.json", true),
             true
         );
     }

@@ -12,6 +12,7 @@ class API
     {
         require_once("ParametriConfigurazione.php");
         require_once("Laureando.php");
+        require_once("LaureandoInformatica.php");
         require_once("GeneratoreReportPDF.php");
 
         $this->parametri_configurazione = new ParametriConfigurazione();
@@ -58,17 +59,28 @@ class API
             }
 
             $laureandi = array();
-            foreach ($data["matricole"] as $matricola) {
-                $laureando = new Laureando((int)$matricola, $data["corso_laurea"], $data["data_laurea"]);
-                $this->generatore_report->generaReportPDFLaureando($laureando)->Output(
-                    'F',
-                    $path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf'
-                );
-                $laureandi[] = $laureando;
-            }
+			try {
+				foreach ($data["matricole"] as $matricola) {
+					$matricola = (int) $matricola;
+					$corso_laurea = $data["corso_laurea"];
+					$data_laurea = date_create($data["data_laurea"]);
 
-            return json_encode(array("msg" => count($laureandi) . " prospetti creati con successo."));
+					$laureando = $corso_laurea != "t-inf" ? 
+						new Laureando($matricola, $corso_laurea, $data_laurea) :
+						new LaureandoInformatica($matricola, $corso_laurea, $data_laurea);
+					$this->generatore_report->generaReportPDFLaureando($laureando)->Output(
+						'F',
+						$path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf'
+					);
+					$laureandi[] = $laureando;
+				}
+				return json_encode(array("message" => count($laureandi) . " prospetti creati con successo."));
+			} catch (\Exception $e) {
+				http_response_code(400);
+				return json_encode(array("message" => $e->getMessage()));
+			}
         }
-        return http_response_code(405);
+        http_response_code(405);
+		return;
     }
 }

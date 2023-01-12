@@ -10,11 +10,12 @@ class Laureando
     public string $cognome;
     public string $email;
     public array $esami;
-    public string $data_laurea;
+    public \DateTime $data_laurea;
+    public int $anno_immatricolazione;
     private GestioneCarrieraStudente $gestore_carriera;
     private ParametriConfigurazione $parametri_configurazione;
 
-    public function __construct(int $matricola, string $CdL, string $data_laurea)
+    public function __construct(int $matricola, string $CdL, \DateTime $data_laurea)
     {
         require_once("Esame.php");
         require_once("ParametriConfigurazione.php");
@@ -29,20 +30,51 @@ class Laureando
         $this->cognome = $anagrafica["cognome"];
         $this->email = $anagrafica["email_ate"];
         $this->data_laurea = $data_laurea;
+        $this->anno_immatricolazione = -1;
+
+        $filtro_esami = array_values(array_filter(
+            $this->parametri_configurazione->getFiltroEsami()[$CdL],
+            function ($mat_i) use ($matricola) {
+                return $mat_i == "*" || (int) $mat_i == $matricola;
+            },
+            ARRAY_FILTER_USE_KEY
+        ));
+		if(count($filtro_esami) == 2){
+			$filtro_esami = array_merge_recursive($filtro_esami[0], $filtro_esami[1]);
+		}else{
+			$filtro_esami = $filtro_esami[0];
+		}
 
         $carriera = $this->gestore_carriera->getCarriera($matricola);
         $this->esami = array();
         foreach ($carriera as $esame) {
             if ($this->parametri_configurazione->getCorsiDiLaurea()[$CdL]["CdL-alt"] == $esame["CORSO"]) {
+                $esame_nome = $esame["DES"];
+                $esame_voto = (int) $esame["VOTO"];
+                $esame_cfu = $esame["PESO"];
+                $esame_data = $esame["DATA_ESAME"];
+                $esame_in_cdl = !in_array($esame_nome, $filtro_esami["esami-non-cdl"]);
+                $esame_in_avg = $esame_in_cdl && !in_array($esame_nome, $filtro_esami["esami-non-avg"]);
+                $esame_in_inf = in_array($esame_nome, $this->parametri_configurazione->getEsamiInformatici());
+
+                if ($this->anno_immatricolazione == -1) {
+                    $this->anno_immatricolazione = (int)$esame["ANNO_IMM"];
+                }
+
                 $this->esami[] = new Esame(
-                    $esame["DES"],
-                    (int) $esame["VOTO"],
-                    $esame["PESO"],
-                    $esame["DATA_ESAME"],
-                    true
+                    $esame_nome,
+                    $esame_voto,
+                    $esame_cfu,
+                    $esame_data,
+                    $esame_in_cdl,
+                    $esame_in_avg,
+                    $esame_in_inf
                 );
             }
         }
+		if (count($this->esami) == 0) {
+			throw new \Exception("Errore: Corso di laurea non corretto per la matricola $matricola.");
+		}
     }
 
    /**
@@ -52,15 +84,9 @@ class Laureando
     */
     public function getMediaPesata(): float
     {
-        $media = 0;
-        $cfu = 0;
-        foreach ($this->esami as $esame) {
-            if ($esame->is_avg) {
-                $media += $esame->voto * $esame->cfu;
-                $cfu += $esame->cfu;
-            }
-        }
-        return $media / $cfu;
+        return round(array_reduce($this->esami, function ($acc, $esame) {
+            return $acc + $esame->voto * $esame->cfu * $esame->in_avg;
+        }, 0) / $this->getCFUInAVG(), 3);
     }
 
     /**
@@ -70,13 +96,9 @@ class Laureando
      */
     public function getCFUInAVG(): int
     {
-        $cfu = 0;
-        foreach ($this->esami as $esame) {
-            if ($esame->is_avg) {
-                $cfu += $esame->cfu;
-            }
-        }
-        return $cfu;
+        return array_reduce($this->esami, function ($acc, $esame) {
+            return $acc + $esame->cfu * $esame->in_avg;
+        }, 0);
     }
 
     /**
@@ -86,10 +108,8 @@ class Laureando
      */
     public function getCFU(): int
     {
-        $cfu = 0;
-        foreach ($this->esami as $esame) {
-            $cfu += $esame->cfu;
-        }
-        return $cfu;
+        return array_reduce($this->esami, function ($acc, $esame) {
+            return $acc + $esame->cfu * $esame->in_cdl;
+        }, 0);
     }
 }

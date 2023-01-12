@@ -5,18 +5,18 @@ const BUTTON_crea_prospetti = document.querySelector("#form-input #crea_prospett
 const BUTTON_apri_prospetti = document.querySelector("#form-input #apri_prospetti");
 const BUTTON_invia_prospetti = document.querySelector("#form-input #invia_prospetti");
 
-function showToast(message)
+function showToast(message, error=false)
 {
     let toast = document.createElement('div');
     toast.id = 'toast';
 
-    time = message.split(" ").length * 600;
+    time = message.split(" ").length * 1000 + 5000 * error ;
 
     toast.appendChild(document.createTextNode(message));
     document.body.appendChild(toast);
 
     setTimeout(function () {
-        toast.classList.add("active");
+        toast.classList.add("active", error ? "error" : null);
         setTimeout(function () {
             toast.classList.remove("active");
             setTimeout(function () {
@@ -74,7 +74,9 @@ BUTTON_crea_prospetti.addEventListener("click", (e) => {
             matricole: TEXTAREA_matricole.value.split("\n").map((elem) => parseInt(elem.trim()))
         })
     })
-    .then((res) => res.json())
-    .then((res) => showToast(res.msg));
+    .then((res) => res.ok ? res.json() : Promise.reject(res))
+    .then((res) => showToast(res.message))
+	.catch((err) => err.json())
+	.then((err) => showToast(err.message, true));
 });
 
