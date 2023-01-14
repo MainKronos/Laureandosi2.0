@@ -1,16 +1,16 @@
 const SELECT_corso_laurea = document.querySelector("#form-input #corso_laurea");
 const DATE_data_laurea = document.querySelector("#form-input #data_laurea");
 const TEXTAREA_matricole = document.querySelector("#form-input #matricole");
-const BUTTON_crea_prospetti = document.querySelector("#form-input #crea_prospetti");
-const BUTTON_apri_prospetti = document.querySelector("#form-input #apri_prospetti");
-const BUTTON_invia_prospetti = document.querySelector("#form-input #invia_prospetti");
+const BUTTON_crea_report = document.querySelector("#form-input #crea_report");
+const BUTTON_apri_report = document.querySelector("#form-input #apri_report");
+const BUTTON_invia_report = document.querySelector("#form-input #invia_report");
 
 function showToast(message, error=false)
 {
     let toast = document.createElement('div');
     toast.id = 'toast';
 
-    time = message.split(" ").length * 1000 + 5000 * error ;
+    time = message.length * 100 + 5000 * error ;
 
     toast.appendChild(document.createTextNode(message));
     document.body.appendChild(toast);
@@ -26,6 +26,13 @@ function showToast(message, error=false)
     }, 500);
 }
 
+function checkInput()
+{
+
+
+    return true;
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     fetch("?api=GETCorsiDiLaurea")
     .then((res) => res.json())
@@ -38,7 +45,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         DATE_data_laurea.min = new Date().toISOString().split("T")[0];
 
-        BUTTON_crea_prospetti.disabled = false;
+        BUTTON_crea_report.disabled = false;
         DATE_data_laurea.disabled = false;
         TEXTAREA_matricole.disabled = false;
         SELECT_corso_laurea.disabled = false;
@@ -46,7 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 });
 
-BUTTON_crea_prospetti.addEventListener("click", (e) => {
+BUTTON_crea_report.addEventListener("click", (e) => {
 
     if (!SELECT_corso_laurea.checkValidity()) {
         SELECT_corso_laurea.reportValidity();
@@ -63,7 +70,7 @@ BUTTON_crea_prospetti.addEventListener("click", (e) => {
         return;
     }
 
-    fetch("?api=POSTCreaProspetti", {
+    fetch("?api=POSTCreaReport", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -76,17 +83,95 @@ BUTTON_crea_prospetti.addEventListener("click", (e) => {
     })
     .then((res) => res.ok ? res.json() : Promise.reject(res))
     .then((res) => showToast(res.message))
-    .catch((err) => err.json())
-    .then((err) => showToast(err.message, true));
+    .catch((err) => err.json().then((err) => showToast(err.message, true)));
 });
 
 
-BUTTON_apri_prospetti.addEventListener("click", (e) => {
-	fetch("?api=GETApriProspetto&corso_laurea=" + SELECT_corso_laurea.value + "&data_laurea=" + DATE_data_laurea.value) 
-	.then((res) => res.ok ? res.blob() : Promise.reject(res))
-	.catch((err) => err.json()
-		.then((err) => showToast(err.message, true))
-	)
-	.then((res) => window.open(window.URL.createObjectURL(res), '_blank')).focus()
-	
+BUTTON_apri_report.addEventListener("click", (e) => {
+
+    if (!SELECT_corso_laurea.checkValidity()) {
+        SELECT_corso_laurea.reportValidity();
+        return false;
+    }
+
+    if (!DATE_data_laurea.checkValidity()) {
+        DATE_data_laurea.reportValidity();
+        return false;
+    }
+
+    fetch("?api=GETApriReport&corso_laurea=" + SELECT_corso_laurea.value + "&data_laurea=" + DATE_data_laurea.value)
+    .then((res) => res.ok ? res.blob() : Promise.reject(res))
+    .then((res) => window.open(window.URL.createObjectURL(res), '_blank').focus())
+    .catch((err) => err.json().then((err) => showToast(err.message, true)));
+
+});
+
+BUTTON_invia_report.addEventListener("click", (e) => {
+
+    if (!SELECT_corso_laurea.checkValidity()) {
+        SELECT_corso_laurea.reportValidity();
+        return false;
+    }
+
+    if (!DATE_data_laurea.checkValidity()) {
+        DATE_data_laurea.reportValidity();
+        return false;
+    }
+
+    if (!TEXTAREA_matricole.checkValidity()) {
+        TEXTAREA_matricole.reportValidity();
+        return false;
+    }
+
+    let matricole = TEXTAREA_matricole.value.split("\n").map((elem) => parseInt(elem.trim()));
+    let corso_laurea = SELECT_corso_laurea.value;
+    let data_laurea = DATE_data_laurea.value;
+
+    SELECT_corso_laurea.disabled = true;
+    DATE_data_laurea.disabled = true;
+    TEXTAREA_matricole.disabled = true;
+    BUTTON_invia_report.disabled = true;
+    BUTTON_apri_report.disabled = true;
+    BUTTON_crea_report.disabled = true;
+
+    async function inviaReport()
+    {
+        const matricola = matricole.shift();
+        const res = await fetch("?api=POSTInviaReport", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                corso_laurea: corso_laurea,
+                data_laurea: data_laurea,
+                matricola: matricola
+            })
+        });
+        const json = await res.json();
+        if (res.ok) {
+            showToast(json.message + "\n" + matricole.length + " report rimanenti.");
+            if (matricole.length > 0) {
+                await new Promise(resolve => {setTimeout(resolve, 10000)})
+                await inviaReport();
+            }
+        } else if (res.status == 409) {
+            if (matricole.length > 0) {
+                await inviaReport();
+            } else {
+                showToast("Tutti i report sono già stati inviati.");
+            }
+        } else {
+            showToast(json.message, true);
+        }
+    }
+
+    inviaReport().then(() => {
+        SELECT_corso_laurea.disabled = false;
+        DATE_data_laurea.disabled = false;
+        TEXTAREA_matricole.disabled = false;
+        BUTTON_invia_report.disabled = false;
+        BUTTON_apri_report.disabled = false;
+        BUTTON_crea_report.disabled = false;
+    });
 });

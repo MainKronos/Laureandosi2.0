@@ -148,6 +148,7 @@ input[type=number] + label, input[type=text] + label, input[type=date] + label, 
     top: -53px;
     user-select: none;
     transition: all 0.5s;
+    white-space: pre;
 }
 #toast.active {
     opacity: 100;

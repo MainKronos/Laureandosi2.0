@@ -20,10 +20,10 @@ class Laureando
         require_once("Esame.php");
         require_once("ParametriConfigurazione.php");
         require_once("GestioneCarrieraStudente.php");
-        $this->gestore_carriera = new GestioneCarrieraStudente();
-        $this->parametri_configurazione = new ParametriConfigurazione();
+        $this->gestore_carriera = GestioneCarrieraStudente::getInstance();
+        $this->parametri_configurazione = ParametriConfigurazione::getInstance();
 
-        $anagrafica = $this->gestore_carriera->getAnagrafica($matricola);
+        $anagrafica = $this->gestore_carriera::getAnagrafica($matricola);
         $this->CdL = $CdL;
         $this->matricola = $matricola;
         $this->nome = $anagrafica["nome"];
@@ -33,7 +33,7 @@ class Laureando
         $this->anno_immatricolazione = -1;
 
         $filtro_esami = array_values(array_filter(
-            $this->parametri_configurazione->getFiltroEsami()[$CdL],
+            $this->parametri_configurazione::getFiltroEsami()[$CdL],
             function ($mat_i) use ($matricola) {
                 return $mat_i == "*" || (int) $mat_i == $matricola;
             },
@@ -45,17 +45,17 @@ class Laureando
             $filtro_esami = $filtro_esami[0];
         }
 
-        $carriera = $this->gestore_carriera->getCarriera($matricola);
+        $carriera = $this->gestore_carriera::getCarriera($matricola);
         $this->esami = array();
         foreach ($carriera as $esame) {
-            if ($this->parametri_configurazione->getCorsiDiLaurea()[$CdL]["CdL-alt"] == $esame["CORSO"]) {
+            if ($this->parametri_configurazione::getCorsiDiLaurea()[$CdL]["CdL-alt"] == $esame["CORSO"]) {
                 $esame_nome = $esame["DES"];
                 $esame_voto = (int) $esame["VOTO"];
                 $esame_cfu = $esame["PESO"];
                 $esame_data = $esame["DATA_ESAME"];
                 $esame_in_cdl = !in_array($esame_nome, $filtro_esami["esami-non-cdl"]);
                 $esame_in_avg = $esame_in_cdl && !in_array($esame_nome, $filtro_esami["esami-non-avg"]);
-                $esame_in_inf = in_array($esame_nome, $this->parametri_configurazione->getEsamiInformatici());
+                $esame_in_inf = in_array($esame_nome, $this->parametri_configurazione::getEsamiInformatici());
 
                 if ($this->anno_immatricolazione == -1) {
                     $this->anno_immatricolazione = (int)$esame["ANNO_IMM"];

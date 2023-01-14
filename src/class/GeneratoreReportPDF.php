@@ -4,27 +4,28 @@ namespace laureandosi;
 
 class GeneratoreReportPDF
 {
-    private ParametriConfigurazione $parametri_configurazione;
+    private static ParametriConfigurazione $parametri_configurazione;
+    private static GeneratoreReportPDF $instance;
 
-    public function __construct()
+    private function __construct()
     {
-        require_once(join(DIRECTORY_SEPARATOR, array(dirname(__DIR__), 'lib', 'fpdf', 'fpdf.php')));
-        require_once("ParametriConfigurazione.php");
-
-        $this->parametri_configurazione = new ParametriConfigurazione();
     }
 
-    public function generaReportPDFLaureando(Laureando $laureando, \FPDF $pdf = null): \FPDF
+    public static function getInstance(): GeneratoreReportPDF
     {
-        $pdf = $pdf ?? new \FPDF('P', 'mm', 'A4');
+        if (!isset(self::$instance)) {
+            require_once(join(DIRECTORY_SEPARATOR, array(dirname(__DIR__), 'lib', 'fpdf184', 'fpdf.php')));
+            require_once("ParametriConfigurazione.php");
 
+            self::$parametri_configurazione = ParametriConfigurazione::getInstance();
+            self::$instance = new GeneratoreReportPDF();
+        }
+        return self::$instance;
+    }
+
+    private static function aggiungiDatiAnagrafici(\FPDF $pdf, Laureando $laureando): \FPDF
+    {
         $is_inf = is_a($laureando, LaureandoInformatica::class);
-
-        $pdf->SetFont('Arial', '', 12);
-        $pdf->AddPage();
-
-        $pdf->Cell(0, 5, $this->parametri_configurazione->getCorsiDiLaurea()[$laureando->CdL]["CdL"], 0, 1, 'C');
-        $pdf->Cell(0, 5, 'CARRIERA E SIMULAZIONE DEL VOTO DI LAUREA', 0, 1, 'C');
 
         $pdf->SetFontSize(10);
 
@@ -46,6 +47,15 @@ class GeneratoreReportPDF
         }
 
         $pdf->Ln(1.5);
+
+        return $pdf;
+    }
+
+    private static function aggiungiCarriera(\FPDF $pdf, Laureando $laureando): \FPDF
+    {
+        $is_inf = is_a($laureando, LaureandoInformatica::class);
+
+        $pdf->SetFontSize(10);
 
         $pdf->Cell($pdf->GetPageWidth() - 10 * (5 + $is_inf), 5, 'ESAME', 1, 0, 'C');
         $pdf->Cell(10, 5, 'CFU', 1, 0, 'C');
@@ -72,6 +82,14 @@ class GeneratoreReportPDF
         }
 
         $pdf->Ln(3.5);
+
+        return $pdf;
+    }
+
+    private static function aggiungiParametriCalcolati(\FPDF $pdf, Laureando $laureando): \FPDF
+    {
+        $is_inf = is_a($laureando, LaureandoInformatica::class);
+
         $pdf->SetFontSize(10);
 
         $pdf->Rect($pdf->GetX(), $pdf->GetY(), $pdf->GetPageWidth() - 20, 20 + 10 * $is_inf);
@@ -82,13 +100,13 @@ class GeneratoreReportPDF
         $pdf->Cell(0, 5, $laureando->getCFUInAVG(), 0, 1);
         $pdf->Cell(80, 5, 'Crediti curriculari conseguiti:', 0, 0);
         $pdf->Cell(0, 5, $laureando->getCFU() . '/' .
-            $this->parametri_configurazione->getCorsiDiLaurea()[$laureando->CdL]["tot-CFU"], 0, 1);
+            self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["tot-CFU"], 0, 1);
         if ($is_inf) {
             $pdf->Cell(80, 5, 'Voto di tesi (T):', 0, 0);
             $pdf->Cell(0, 5, 0, 0, 1);
         }
         $pdf->Cell(80, 5, 'Formula calcolo voto di laurea:', 0, 0);
-        $pdf->Cell(0, 5, $this->parametri_configurazione->getCorsiDiLaurea()[$laureando->CdL]["voto-laurea"], 0, 1);
+        $pdf->Cell(0, 5, self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["voto-laurea"], 0, 1);
         if ($is_inf) {
             $pdf->Cell(80, 5, 'Media pesata esami INF:', 0, 0);
             $pdf->Cell(0, 5, $laureando->getMediaPesataInINF(), 0, 1);
@@ -97,18 +115,18 @@ class GeneratoreReportPDF
         return $pdf;
     }
 
-    public function generaReportPDFLaureandoConSimulazione(Laureando $laureando, \FPDF $pdf = null): \FPDF
+    private static function aggiungiSimulazione(\FPDF $pdf, Laureando $laureando): \FPDF
     {
-        $pdf = $this->generaReportPDFLaureando($laureando, $pdf);
+        $pdf->SetFontSize(10);
 
         $pdf->Ln(3);
 
         $pdf->Cell(0, 5, 'SIMULAZIONE DI VOTO DI LAUREA', 1, 1, 'C');
 
-        list($t_min,$t_max,$t_step) = array_values($this->parametri_configurazione->getCorsiDiLaurea()[$laureando->CdL]["par-T"]);
-        list($c_min,$c_max,$c_step) = array_values($this->parametri_configurazione->getCorsiDiLaurea()[$laureando->CdL]["par-C"]);
+        list($t_min,$t_max,$t_step) = array_values(self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["par-T"]);
+        list($c_min,$c_max,$c_step) = array_values(self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["par-C"]);
 
-        $formula = $this->parametri_configurazione->getCorsiDiLaurea()[$laureando->CdL]["voto-laurea"];
+        $formula = self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["voto-laurea"];
         $formula = str_replace(array('M', 'CFU'), array($laureando->getMediaPesata(),$laureando->getCFU()), $formula);
 
         $parametro = '';
@@ -183,11 +201,39 @@ class GeneratoreReportPDF
         return $pdf;
     }
 
-    public function generaReportPDFCommissione(array $laureandi): \FPDF
+    public static function generaReportPDFLaureando(Laureando $laureando, \FPDF $pdf = null): \FPDF
+    {
+        $pdf = $pdf ?? new \FPDF('P', 'mm', 'A4');
+
+        $pdf->SetFont('Arial', '', 12);
+        $pdf->AddPage();
+
+        $pdf->Cell(0, 5, self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["CdL"], 0, 1, 'C');
+        $pdf->Cell(0, 5, 'CARRIERA E SIMULAZIONE DEL VOTO DI LAUREA', 0, 1, 'C');
+
+        $pdf = self::aggiungiDatiAnagrafici($pdf, $laureando);
+
+        $pdf = self::aggiungiCarriera($pdf, $laureando);
+
+        $pdf = self::aggiungiParametriCalcolati($pdf, $laureando);
+
+        return $pdf;
+    }
+
+    public static function generaReportPDFLaureandoConSimulazione(Laureando $laureando, \FPDF $pdf = null): \FPDF
+    {
+        $pdf = self::generaReportPDFLaureando($laureando, $pdf);
+
+        $pdf = self::aggiungiSimulazione($pdf, $laureando);
+
+        return $pdf;
+    }
+
+    public static function generaReportPDFCommissione(array $laureandi): \FPDF
     {
         $pdf = new \FPDF();
         foreach ($laureandi as $laureando) {
-            $pdf = $this->generaReportPDFLaureandoConSimulazione($laureando, $pdf);
+            $pdf = self::generaReportPDFLaureandoConSimulazione($laureando, $pdf);
         }
         return $pdf;
     }

@@ -4,22 +4,32 @@ namespace laureandosi;
 
 class GestioneCarrieraStudente
 {
-    private string $data_path;
+    private static string $data_path;
 
-    public function __construct()
+    private static GestioneCarrieraStudente $instance;
+
+    private function __construct()
     {
-        $this->data_path = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__, 2), 'res', 'data'));
     }
 
-    public function getAnagrafica(int $matricola): array
+    public static function getInstance(): GestioneCarrieraStudente
     {
-        $string = file_get_contents($this->data_path . "/anagrafica_studenti.json");
+        if (!isset(self::$instance)) {
+            self::$data_path = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__, 2), 'res', 'data'));
+            self::$instance = new GestioneCarrieraStudente();
+        }
+        return self::$instance;
+    }
+
+    public static function getAnagrafica(int $matricola): array
+    {
+        $string = file_get_contents(self::$data_path . "/anagrafica_studenti.json");
         return json_decode($string, true)["Entries"]["Entry"];
     }
 
-    public function getCarriera(int $matricola): array
+    public static function getCarriera(int $matricola): array
     {
-        $string = file_get_contents($this->data_path . "/carriera_studenti.json");
+        $string = file_get_contents(self::$data_path . "/carriera_studenti.json");
         return json_decode($string, true)["Esami"]["Esame"];
     }
 }

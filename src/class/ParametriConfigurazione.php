@@ -4,33 +4,43 @@ namespace laureandosi;
 
 class ParametriConfigurazione
 {
-    private string $path;
+    private static string $path;
 
-    public function __construct()
+    private static ParametriConfigurazione $instance;
+
+    private function __construct()
     {
-        $this->path = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__, 2), 'res', 'config'));
     }
 
-    public function getEsamiInformatici(): array
+    public static function getInstance(): ParametriConfigurazione
+    {
+        if (!isset(self::$instance)) {
+            self::$path = join(DIRECTORY_SEPARATOR, array(dirname(__FILE__, 2), 'res', 'config'));
+            self::$instance = new ParametriConfigurazione();
+        }
+        return self::$instance;
+    }
+
+    public static function getEsamiInformatici(): array
     {
         return json_decode(
-            file_get_contents($this->path . DIRECTORY_SEPARATOR . "esami_informatici.json", true),
+            file_get_contents(self::$path . DIRECTORY_SEPARATOR . "esami_informatici.json", true),
             true
         );
     }
 
-    public function getFiltroEsami(): array
+    public static function getFiltroEsami(): array
     {
         return json_decode(
-            file_get_contents($this->path . DIRECTORY_SEPARATOR . "filtro_esami.json", true),
+            file_get_contents(self::$path . DIRECTORY_SEPARATOR . "filtro_esami.json", true),
             true
         );
     }
 
-    public function getCorsiDiLaurea(): array
+    public static function getCorsiDiLaurea(): array
     {
         return json_decode(
-            file_get_contents($this->path . DIRECTORY_SEPARATOR . "corsi_di_laurea.json", true),
+            file_get_contents(self::$path . DIRECTORY_SEPARATOR . "corsi_di_laurea.json", true),
             true
         );
     }

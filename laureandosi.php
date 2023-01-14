@@ -6,6 +6,8 @@
 
 */
 
+use laureandosi\API;
+
 if (empty($_REQUEST["api"])) {
     $html = file_get_contents("src/page/home/index.html", 1);
     $js = file_get_contents("src/page/home/index.js", 1);
@@ -17,11 +19,12 @@ if (empty($_REQUEST["api"])) {
     echo $html;
 } else {
     require("src/class/API.php");
+
     header("Access-Control-Allow-Origin: *");
     header('Content-Type: application/json; charset=utf-8');
     $fun = $_REQUEST["api"];
-    if (method_exists(laureandosi\API::class, $fun)) {
-        echo (new laureandosi\API())->$fun();
+    if (method_exists(API::class, $fun)) {
+        echo (API::getInstance())::$fun();
     } else {
         http_response_code(404);
     }
