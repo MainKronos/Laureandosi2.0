@@ -4,9 +4,9 @@ namespace laureandosi;
 
 class LaureandoInformatica extends Laureando
 {
-    public function __construct(int $matricola, string $CdL, \DateTime $data_laurea)
+    public function __construct(int $matricola, string $cdl, \DateTime $data_laurea)
     {
-        parent::__construct($matricola, $CdL, $data_laurea);
+        parent::__construct($matricola, $cdl, $data_laurea);
         $esame_bonus = $this->getEsameBonus();
         if (!is_null($esame_bonus)) {
             $esame_bonus->in_avg = false;

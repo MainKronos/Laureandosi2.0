@@ -4,7 +4,7 @@ namespace laureandosi;
 
 class Laureando
 {
-    public string $CdL;
+    public string $cdl;
     public int $matricola;
     public string $nome;
     public string $cognome;
@@ -15,7 +15,7 @@ class Laureando
     private GestioneCarrieraStudente $gestore_carriera;
     private ParametriConfigurazione $parametri_configurazione;
 
-    public function __construct(int $matricola, string $CdL, \DateTime $data_laurea)
+    public function __construct(int $matricola, string $cdl, \DateTime $data_laurea)
     {
         require_once("Esame.php");
         require_once("ParametriConfigurazione.php");
@@ -24,7 +24,7 @@ class Laureando
         $this->parametri_configurazione = ParametriConfigurazione::getInstance();
 
         $anagrafica = $this->gestore_carriera::getAnagrafica($matricola);
-        $this->CdL = $CdL;
+        $this->cdl = $cdl;
         $this->matricola = $matricola;
         $this->nome = $anagrafica["nome"];
         $this->cognome = $anagrafica["cognome"];
@@ -33,7 +33,7 @@ class Laureando
         $this->anno_immatricolazione = -1;
 
         $filtro_esami = array_values(array_filter(
-            $this->parametri_configurazione::getFiltroEsami()[$CdL],
+            $this->parametri_configurazione::getFiltroEsami()[$cdl],
             function ($mat_i) use ($matricola) {
                 return $mat_i == "*" || (int) $mat_i == $matricola;
             },
@@ -48,7 +48,7 @@ class Laureando
         $carriera = $this->gestore_carriera::getCarriera($matricola);
         $this->esami = array();
         foreach ($carriera as $esame) {
-            if ($this->parametri_configurazione::getCorsiDiLaurea()[$CdL]["CdL-alt"] == $esame["CORSO"]) {
+            if ($this->parametri_configurazione::getCorsiDiLaurea()[$cdl]["cdl-alt"] == $esame["CORSO"]) {
                 $esame_nome = $esame["DES"];
                 $esame_voto = (int) $esame["VOTO"];
                 $esame_cfu = $esame["PESO"];

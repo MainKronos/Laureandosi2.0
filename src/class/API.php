@@ -31,7 +31,7 @@ class API
         return self::$instance;
     }
 
-    public function GETCorsiDiLaurea(): ?string
+    public static function GETCorsiDiLaurea(): ?string
     {
         if ($_SERVER["REQUEST_METHOD"] == "GET") {
             $val = array_values(self::$parametri_configurazione::getCorsiDiLaurea());
@@ -40,7 +40,7 @@ class API
                 $val[$i] = array_filter(
                     $val[$i],
                     function ($key) {
-                        return $key == "CdL" || $key == "CdL-short";
+                        return $key == "cdl" || $key == "cdl-short";
                     },
                     ARRAY_FILTER_USE_KEY
                 );

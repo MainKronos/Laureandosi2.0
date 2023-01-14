@@ -100,13 +100,13 @@ class GeneratoreReportPDF
         $pdf->Cell(0, 5, $laureando->getCFUInAVG(), 0, 1);
         $pdf->Cell(80, 5, 'Crediti curriculari conseguiti:', 0, 0);
         $pdf->Cell(0, 5, $laureando->getCFU() . '/' .
-            self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["tot-CFU"], 0, 1);
+            self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->cdl]["tot-CFU"], 0, 1);
         if ($is_inf) {
             $pdf->Cell(80, 5, 'Voto di tesi (T):', 0, 0);
             $pdf->Cell(0, 5, 0, 0, 1);
         }
         $pdf->Cell(80, 5, 'Formula calcolo voto di laurea:', 0, 0);
-        $pdf->Cell(0, 5, self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["voto-laurea"], 0, 1);
+        $pdf->Cell(0, 5, self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->cdl]["voto-laurea"], 0, 1);
         if ($is_inf) {
             $pdf->Cell(80, 5, 'Media pesata esami INF:', 0, 0);
             $pdf->Cell(0, 5, $laureando->getMediaPesataInINF(), 0, 1);
@@ -123,10 +123,10 @@ class GeneratoreReportPDF
 
         $pdf->Cell(0, 5, 'SIMULAZIONE DI VOTO DI LAUREA', 1, 1, 'C');
 
-        list($t_min,$t_max,$t_step) = array_values(self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["par-T"]);
-        list($c_min,$c_max,$c_step) = array_values(self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["par-C"]);
+        list($t_min,$t_max,$t_step) = array_values(self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->cdl]["par-T"]);
+        list($c_min,$c_max,$c_step) = array_values(self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->cdl]["par-C"]);
 
-        $formula = self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["voto-laurea"];
+        $formula = self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->cdl]["voto-laurea"];
         $formula = str_replace(array('M', 'CFU'), array($laureando->getMediaPesata(),$laureando->getCFU()), $formula);
 
         $parametro = '';
@@ -208,7 +208,7 @@ class GeneratoreReportPDF
         $pdf->SetFont('Arial', '', 12);
         $pdf->AddPage();
 
-        $pdf->Cell(0, 5, self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]["CdL"], 0, 1, 'C');
+        $pdf->Cell(0, 5, self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->cdl]["cdl"], 0, 1, 'C');
         $pdf->Cell(0, 5, 'CARRIERA E SIMULAZIONE DEL VOTO DI LAUREA', 0, 1, 'C');
 
         $pdf = self::aggiungiDatiAnagrafici($pdf, $laureando);

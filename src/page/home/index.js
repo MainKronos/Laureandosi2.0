@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((res) => {
 
         res.forEach((elem) => {
-            let option = new Option(elem.CdL, elem["CdL-short"]);
+            let option = new Option(elem.cdl, elem["cdl-short"]);
             SELECT_corso_laurea.add(option, undefined);
         });
 

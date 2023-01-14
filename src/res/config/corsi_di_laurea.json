@@ -1,8 +1,8 @@
 {
 	"t-bio": {
-		"CdL": "T. Ing. Biomedica",
-		"CdL-alt": "INGEGNERIA BIOMEDICA (IBI-L)",
-		"CdL-short": "t-bio",
+		"cdl": "T. Ing. Biomedica",
+		"cdl-alt": "INGEGNERIA BIOMEDICA (IBI-L)",
+		"cdl-short": "t-bio",
 		"voto-laurea": "(110/27.17)*(M*CFU+T*3)/(CFU+3)",
 		"tot-CFU": 177,
 		"par-T": {
@@ -18,9 +18,9 @@
 		"txt-email": "???"
 	},
 	"t-ele": {
-		"CdL": "T. Ing. Elettronica",
-		"CdL-alt": "INGEGNERIA ELETTRONICA (IEL-L)",
-		"CdL-short": "t-ele",
+		"cdl": "T. Ing. Elettronica",
+		"cdl-alt": "INGEGNERIA ELETTRONICA (IEL-L)",
+		"cdl-short": "t-ele",
 		"voto-laurea": "2+4*(M*CFU +T*3)/(CFU+3)",
 		"tot-CFU": 177,
 		"par-T": {
@@ -36,9 +36,9 @@
 		"txt-email": "???"
 	},
 	"t-inf": {
-		"CdL": "T. Ing. Informatica",
-		"CdL-alt": "INGEGNERIA INFORMATICA (IFO-L)",
-		"CdL-short": "t-inf",
+		"cdl": "T. Ing. Informatica",
+		"cdl-alt": "INGEGNERIA INFORMATICA (IFO-L)",
+		"cdl-short": "t-inf",
 		"voto-laurea": "M*3+18+T+C",
 		"tot-CFU": 177,
 		"par-T": {
@@ -54,9 +54,9 @@
 		"txt-email": "???"
 	},
 	"t-tel": {
-		"CdL": "T. Ing. delle Telecomunicazioni",
-		"CdL-alt": "INGEGNERIA DELLE TELECOMUNICAZIONI (ITC-L)",
-		"CdL-short": "t-tel",
+		"cdl": "T. Ing. delle Telecomunicazioni",
+		"cdl-alt": "INGEGNERIA DELLE TELECOMUNICAZIONI (ITC-L)",
+		"cdl-short": "t-tel",
 		"voto-laurea": "M*11/3+C",
 		"tot-CFU": 177,
 		"par-T": {
@@ -72,9 +72,9 @@
 		"txt-email": "???"
 	},
 	"m-bio": {
-		"CdL": "M. Ing. Biomedica",
-		"CdL-alt": "INGEGNERIA BIOMEDICA (WIB-LM)",
-		"CdL-short": "m-bio",
+		"cdl": "M. Ing. Biomedica",
+		"cdl-alt": "INGEGNERIA BIOMEDICA (WIB-LM)",
+		"cdl-short": "m-bio",
 		"voto-laurea": "M*3.5+11+C",
 		"tot-CFU": 105,
 		"par-T": {
@@ -90,9 +90,9 @@
 		"txt-email": "???"
 	},
 	"m-ele": {
-		"CdL": "M. Ing. Elettronica",
-		"CdL-alt": "INGEGNERIA ELETTRONICA (WIE-LM)",
-		"CdL-short": "m-ele",
+		"cdl": "M. Ing. Elettronica",
+		"cdl-alt": "INGEGNERIA ELETTRONICA (WIE-LM)",
+		"cdl-short": "m-ele",
 		"voto-laurea": "4*(M*CFU+T*18)/(CFU+18)",
 		"tot-CFU": 102,
 		"par-T": {
@@ -108,9 +108,9 @@
 		"txt-email": "???"
 	},
 	"m-coe": {
-		"CdL": "M. Computer Engineering",
-		"CdL-alt": "COMPUTER ENGINEERING (WCN-LM)",
-		"CdL-short": "m-coe",
+		"cdl": "M. Computer Engineering",
+		"cdl-alt": "COMPUTER ENGINEERING (WCN-LM)",
+		"cdl-short": "m-coe",
 		"voto-laurea": "M*3+22+T+C",
 		"tot-CFU": 96,
 		"par-T": {
@@ -126,9 +126,9 @@
 		"txt-email": "???"
 	},
 	"m-aid": {
-		"CdL": "M. Artificial Intelligence and Data Enginering",
-		"CdL-alt": "ARTIFICIAL INTELLIGENCE AND DATA ENGINEERING (WAI-LM)",
-		"CdL-short": "m-aid",
+		"cdl": "M. Artificial Intelligence and Data Enginering",
+		"cdl-alt": "ARTIFICIAL INTELLIGENCE AND DATA ENGINEERING (WAI-LM)",
+		"cdl-short": "m-aid",
 		"voto-laurea": "M*3+22+T+C",
 		"tot-CFU": 96,
 		"par-T": {
@@ -144,9 +144,9 @@
 		"txt-email": "???"
 	},
 	"m-rob": {
-		"CdL": "M. Ing. Robotica e della Automazione",
-		"CdL-alt": "INGEGNERIA ROBOTICA E DELLA AUTOMAZIONE (WIM-LM)",
-		"CdL-short": "m-rob",
+		"cdl": "M. Ing. Robotica e della Automazione",
+		"cdl-alt": "INGEGNERIA ROBOTICA E DELLA AUTOMAZIONE (WIM-LM)",
+		"cdl-short": "m-rob",
 		"voto-laurea": "M*3+18.5+T",
 		"tot-CFU": 102,
 		"par-T": {
@@ -162,9 +162,9 @@
 		"txt-email": "???"
 	},
 	"m-tel": {
-		"CdL": "M. Ing. delle Telecomunicazioni",
-		"CdL-alt": "INGEGNERIA DELLE TELECOMUNICAZIONI (WIT-LM)",
-		"CdL-short": "m-tel",
+		"cdl": "M. Ing. delle Telecomunicazioni",
+		"cdl-alt": "INGEGNERIA DELLE TELECOMUNICAZIONI (WIT-LM)",
+		"cdl-short": "m-tel",
 		"voto-laurea": "M*11/3+C",
 		"tot-CFU": 96,
 		"par-T": {

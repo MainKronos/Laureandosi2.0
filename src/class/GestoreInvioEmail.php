@@ -59,9 +59,9 @@ class GestoreInvioEmail
         $mail->AddAttachment($report_path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf', 'report.pdf');
 
         $mail->Subject = 'Appello di laurea in ' .
-            self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]['CdL'] .
+            self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->cdl]['cdl'] .
             '- indicatori per voto di laurea';
-        $mail->Body = self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->CdL]['txt-email'];
+        $mail->Body = self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->cdl]['txt-email'];
 
         return $mail;
     }
