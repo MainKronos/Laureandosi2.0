@@ -24,7 +24,7 @@ if (empty($_REQUEST["api"])) {
     header('Content-Type: application/json; charset=utf-8');
     $fun = $_REQUEST["api"];
     if (method_exists(API::class, $fun)) {
-        echo (API::getInstance())::$fun();
+        echo (API::getInstance())::$fun(file_get_contents('php://input'));
     } else {
         http_response_code(404);
     }

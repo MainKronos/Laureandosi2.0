@@ -52,10 +52,10 @@ class API
         return null;
     }
 
-    public static function POSTCreaReport(): ?string
+    public static function POSTCreaReport(string $json): ?string
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $data = json_decode(file_get_contents('php://input'), true);
+            $data = json_decode($json, true);
 
             $path = join(DIRECTORY_SEPARATOR, array(
                 self::$report_path,
@@ -132,10 +132,10 @@ class API
         return null;
     }
 
-    public static function POSTInviaReport(): ?string
+    public static function POSTInviaReport(string $json): ?string
     {
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
-            $data = json_decode(file_get_contents('php://input'), true);
+            $data = json_decode($json, true);
 
             $data_laurea = $data["data_laurea"];
             $corso_laurea = $data["corso_laurea"];

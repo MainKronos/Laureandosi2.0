@@ -43,7 +43,7 @@ class GestoreInvioEmail
         return file_put_contents($cache_file, json_encode($cache));
     }
 
-    private static function creaEmail(Laureando $laureando, string $report_path): PHPMailer
+    private static function creaEmail(Laureando $laureando, string $report): PHPMailer
     {
         $mail = new PHPMailer(true);
         $mail->isSMTP();
@@ -56,7 +56,7 @@ class GestoreInvioEmail
         $mail->setLanguage('it', join(DIRECTORY_SEPARATOR, array(dirname(__DIR__), 'lib', 'PHPMailer', 'language')));
         $mail->setFrom('no-reply-laureandosi@ing.unipi.it', 'Laureandosi');
         $mail->AddAddress($laureando->email, $laureando->nome . ' ' . $laureando->cognome);
-        $mail->AddAttachment($report_path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf', 'report.pdf');
+        $mail->AddAttachment($report, 'report.pdf');
 
         $mail->Subject = 'Appello di laurea in ' .
             self::$parametri_configurazione::getCorsiDiLaurea()[$laureando->cdl]['cdl'] .
@@ -77,7 +77,7 @@ class GestoreInvioEmail
             return false;
         }
 
-        $mail = self::creaEmail($laureando, $report_path);
+        $mail = self::creaEmail($laureando, $report_path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf');
 
         try {
             // $cache[(string)$laureando->matricola] = $mail->send();
