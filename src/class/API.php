@@ -143,8 +143,8 @@ class API
 
             $report_path = join(DIRECTORY_SEPARATOR, array(
                 self::$report_path,
-                $data["data_laurea"],
-                $data["corso_laurea"],
+                $data_laurea,
+                $corso_laurea,
             ));
 
             if (!file_exists($report_path)) {
@@ -157,7 +157,7 @@ class API
                 return json_encode(array("message" => "ERRORE: Il report del laureando $matricola non è stato ancora generato."));
             }
 
-            $laureando = new Laureando($matricola, $data["corso_laurea"], date_create($data["data_laurea"]));
+            $laureando = new Laureando($matricola, $corso_laurea, date_create($data_laurea));
             try {
                 if (!self::$gestore_invio_email::inviaEmail($laureando, $report_path)) {
                     http_response_code(409);
