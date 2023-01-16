@@ -69,28 +69,26 @@ class API
 
             $laureandi = array();
             try {
-                foreach ($data["matricole"] as $matricola) {
-                    $matricola = (int) $matricola;
-                    $corso_laurea = $data["corso_laurea"];
-                    $data_laurea = date_create($data["data_laurea"]);
+				foreach ($data["matricole"] as $matricola) {
+					$matricola = (int) $matricola;
+					$corso_laurea = $data["corso_laurea"];
+					$data_laurea = date_create($data["data_laurea"]);
 
-                    $laureando = $corso_laurea != "t-inf" ?
-                        new Laureando($matricola, $corso_laurea, $data_laurea) :
-                        new LaureandoInformatica($matricola, $corso_laurea, $data_laurea);
+					$laureando = $corso_laurea != "t-inf" ?
+						new Laureando($matricola, $corso_laurea, $data_laurea) :
+						new LaureandoInformatica($matricola, $corso_laurea, $data_laurea);
 
-                    self::$generatore_report::generaReportPDFLaureando($laureando)->Output(
-                        'F',
-                        $path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf'
-                    );
+					self::$generatore_report::generaReportPDFLaureando($laureando)->salva(
+						$path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf'
+					);
 
-                    $laureandi[] = $laureando;
-                }
-                self::$generatore_report::generaReportPDFCommissione($laureandi)->Output(
-                    'F',
-                    $path . DIRECTORY_SEPARATOR . 'all.pdf'
-                );
-                http_response_code(201);
-                return json_encode(array("message" => count($laureandi) . " report creati con successo."));
+					$laureandi[] = $laureando;
+				}
+					self::$generatore_report::generaReportPDFCommissione($laureandi)->salva(
+						$path . DIRECTORY_SEPARATOR . 'all.pdf'
+					);
+					http_response_code(201);
+					return json_encode(array("message" => count($laureandi) . " report creati con successo."));
             } catch (\Exception $e) {
                 http_response_code(400);
                 return json_encode(array("message" => "ERRORE: " . $e->getMessage()));
@@ -154,7 +152,9 @@ class API
 
             if (!file_exists($report_path . DIRECTORY_SEPARATOR . $matricola . '.pdf')) {
                 http_response_code(404);
-                return json_encode(array("message" => "ERRORE: Il report del laureando $matricola non è stato ancora generato."));
+                return json_encode(array(
+                    "message" => "ERRORE: Il report del laureando $matricola non è stato ancora generato."
+                ));
             }
 
             $laureando = new Laureando($matricola, $corso_laurea, date_create($data_laurea));

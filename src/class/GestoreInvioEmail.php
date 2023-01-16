@@ -18,8 +18,12 @@ class GestoreInvioEmail
     public static function getInstance(): GestoreInvioEmail
     {
         if (!isset(self::$instance)) {
-            require_once(join(DIRECTORY_SEPARATOR, array(dirname(__DIR__), 'lib', 'PHPMailer', 'src', 'PHPMailer.php')));
-            require_once(join(DIRECTORY_SEPARATOR, array(dirname(__DIR__), 'lib', 'PHPMailer', 'src', 'Exception.php')));
+            require_once(
+                join(DIRECTORY_SEPARATOR, array(dirname(__DIR__), 'lib', 'PHPMailer', 'src', 'PHPMailer.php'))
+            );
+            require_once(
+                join(DIRECTORY_SEPARATOR, array(dirname(__DIR__), 'lib', 'PHPMailer', 'src', 'Exception.php'))
+            );
             require_once("ParametriConfigurazione.php");
 
             self::$parametri_configurazione = ParametriConfigurazione::getInstance();
