@@ -23,7 +23,9 @@ class Laureando
         $this->gestore_carriera = GestioneCarrieraStudente::getInstance();
         $this->parametri_configurazione = ParametriConfigurazione::getInstance();
 
-        $anagrafica = $this->gestore_carriera::getAnagrafica($matricola);
+        $anagrafica_str = $this->gestore_carriera::getAnagrafica($matricola);
+		$anagrafica = json_decode($anagrafica_str, true)["Entries"]["Entry"];
+
         $this->cdl = $cdl;
         $this->matricola = $matricola;
         $this->nome = $anagrafica["nome"];
@@ -45,7 +47,9 @@ class Laureando
             $filtro_esami = $filtro_esami[0];
         }
 
-        $carriera = $this->gestore_carriera::getCarriera($matricola);
+        $carriera_str = $this->gestore_carriera::getCarriera($matricola);
+		$carriera = json_decode($carriera_str, true)["Esami"]["Esame"];
+
         $this->esami = array();
         foreach ($carriera as $esame) {
             if ($this->parametri_configurazione::getCorsiDiLaurea()[$cdl]["cdl-alt"] == $esame["CORSO"]) {

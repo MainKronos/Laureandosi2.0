@@ -21,15 +21,13 @@ class GestioneCarrieraStudente
         return self::$instance;
     }
 
-    public static function getAnagrafica(int $matricola): array
+    public static function getAnagrafica(int $matricola): string
     {
-        $string = file_get_contents(self::$data_path . "/anagrafica_studenti.json");
-        return json_decode($string, true)["Entries"]["Entry"];
+        return file_get_contents(self::$data_path . "/anagrafica_studenti.json");
     }
 
-    public static function getCarriera(int $matricola): array
+    public static function getCarriera(int $matricola): string
     {
-        $string = file_get_contents(self::$data_path . "/carriera_studenti.json");
-        return json_decode($string, true)["Esami"]["Esame"];
+        return file_get_contents(self::$data_path . "/carriera_studenti.json");
     }
 }
