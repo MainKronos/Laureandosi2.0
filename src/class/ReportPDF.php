@@ -17,5 +17,5 @@ abstract class ReportPDF
         $this->pdf->Output('F', $filename);
     }
 
-    abstract public function genera(): void;
+    abstract public function genera(): ReportPDF;
 }

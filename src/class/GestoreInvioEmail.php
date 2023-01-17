@@ -24,6 +24,9 @@ class GestoreInvioEmail
             require_once(
                 join(DIRECTORY_SEPARATOR, array(dirname(__DIR__), 'lib', 'PHPMailer', 'src', 'Exception.php'))
             );
+			require_once(
+                join(DIRECTORY_SEPARATOR, array(dirname(__DIR__), 'lib', 'PHPMailer', 'src', 'SMTP.php'))
+            );
             require_once("ParametriConfigurazione.php");
 
             self::$parametri_configurazione = ParametriConfigurazione::getInstance();

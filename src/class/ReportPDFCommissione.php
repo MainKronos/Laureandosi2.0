@@ -13,11 +13,12 @@ class ReportPDFCommissione extends ReportPDF
         $this->laureandi = $laureandi;
     }
 
-    public function genera(): void
+    public function genera(): ReportPDFCommissione
     {
         foreach ($this->laureandi as $laureando) {
             $report = new ReportPDFLaureandoConSimulazione($laureando, $this->pdf);
             $report->genera();
         }
+		return $this;
     }
 }

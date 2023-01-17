@@ -23,11 +23,33 @@ class GestioneCarrieraStudente
 
     public static function getAnagrafica(int $matricola): string
     {
-        return file_get_contents(self::$data_path . "/anagrafica_studenti.json");
+        $string = file_get_contents(self::$data_path . "/anagrafica_studenti.json");
+        $json = json_decode($string, true);
+
+		if(!isset($json[(string) $matricola])){
+			$matricola = "dafault";
+		}
+
+        // if (!isset($json[(string) $matricola])) {
+        //     throw new \Exception("Matricola $matricola non trovata.");
+        // }
+
+        return json_encode($json[(string) $matricola]);
     }
 
     public static function getCarriera(int $matricola): string
     {
-        return file_get_contents(self::$data_path . "/carriera_studenti.json");
+        $string =  file_get_contents(self::$data_path . "/carriera_studenti.json");
+        $json = json_decode($string, true);
+
+		if(!isset($json[(string) $matricola])){
+			$matricola = "dafault";
+		}
+
+        // if (!isset($json[(string) $matricola])) {
+        //     throw new \Exception("Matricola $matricola non trovata.");
+        // }
+
+        return json_encode($json[(string) $matricola]);
     }
 }

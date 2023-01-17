@@ -45,7 +45,7 @@ article > section {
     "a c e"
     "b c e"
     "b c f"
-    ". c f";
+    "t c f";
     gap: 30px;
     align-items: center;
     justify-items: center;
@@ -62,10 +62,11 @@ article > section {
 }
 #form-input > div:nth-child(1){grid-area: a;}
 #form-input > div:nth-child(2){grid-area: b;}
-#form-input > div:nth-child(3){grid-area: c;}
-#form-input > div:nth-child(4){grid-area: d;}
-#form-input > div:nth-child(5){grid-area: e;}
-#form-input > div:nth-child(6){grid-area: f;}
+#form-input > div:nth-child(3){grid-area: t;}
+#form-input > div:nth-child(4){grid-area: c;}
+#form-input > div:nth-child(5){grid-area: d;}
+#form-input > div:nth-child(6){grid-area: e;}
+#form-input > div:nth-child(7){grid-area: f;}
 #form-input textarea {
     resize: none;
 }
@@ -129,6 +130,71 @@ input[type=number] + label, input[type=text] + label, input[type=date] + label, 
     left: 25px;
     user-select: none;
 }
+
+input[type=checkbox] {
+	opacity: 0;
+	width: 0;
+	height: 0;
+}
+label:has(input[type=checkbox]) {
+	position: relative;
+	padding: 0 20px;
+	font-size: 18px;
+	user-select: none;
+	cursor: pointer;
+	margin: 10px 0;
+	color: #bababa;
+	display: block;
+}
+  
+label:has(input[type=checkbox]:disabled) {
+	color: #4f4f4f;
+}
+input[type=checkbox]:checked + span::before {
+	content: "✓";
+}
+input[type=checkbox] + span {
+	border-radius: 4px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 18px;
+	width: 18px;
+	background-color: transparent;
+	border: 2px solid #4f4f4f;
+	
+}
+input[type=checkbox] + span::before{
+	font-weight: 900;
+	text-align: center;
+	content: " ";
+	color: white;
+	height: 15px;
+	width: 15px;
+	font-size: 15px;
+	background-color: transparent;
+	display: block;
+	text-align: center;
+}
+input[type=checkbox]:checked + span {
+	background-color: #9FA8DA;
+	border-color: #9FA8DA;
+}
+input[type=checkbox]:disabled + span {
+	border-color: #191919;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 #toast {
     visibility: hidden;
     opacity: 0;
@@ -148,7 +214,7 @@ input[type=number] + label, input[type=text] + label, input[type=date] + label, 
     top: -53px;
     user-select: none;
     transition: all 0.5s;
-    white-space: pre;
+    white-space: pre-line;
 }
 #toast.active {
     opacity: 100;

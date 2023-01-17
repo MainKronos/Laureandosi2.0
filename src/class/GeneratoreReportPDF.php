@@ -26,14 +26,12 @@ class GeneratoreReportPDF
     public static function generaReportPDFLaureando(Laureando $laureando): ReportPDFLaureando
     {
         $report = new ReportPDFLaureando($laureando);
-		$report->genera();
-        return $report;
+        return $report->genera();
     }
 
     public static function generaReportPDFCommissione(array $laureandi): ReportPDFCommissione
     {
         $report = new ReportPDFCommissione($laureandi);
-		$report->genera();
-        return $report;
+        return $report->genera();
     }
 }

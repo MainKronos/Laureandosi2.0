@@ -78,6 +78,16 @@
 			]
 		}
 	},
+	"m-cyb": {
+		"*": {
+			"esami-non-avg": [
+				"TESI"
+			],
+			"esami-non-cdl": [
+				"PROVA FINALE"
+			]
+		}
+	},
 	"m-rob": {
 		"*": {
 			"esami-non-avg": [],

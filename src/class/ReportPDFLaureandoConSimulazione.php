@@ -4,7 +4,7 @@ namespace laureandosi;
 
 class ReportPDFLaureandoConSimulazione extends ReportPDFLaureando
 {
-    private function aggiungiSimulazione(): void
+	private function aggiungiSimulazione(): void
     {
         $this->pdf->SetFontSize(10);
 
@@ -74,7 +74,7 @@ class ReportPDFLaureandoConSimulazione extends ReportPDFLaureando
 
             $informazioni_calcolo = is_a($this->laureando, LaureandoInformatica::class) ?
                 "scegli voto commissione, prendi il corrispondente voto di laurea " .
-				"e somma il voto di tesi tra 1 e 3, quindi arrotonda" :
+                "e somma il voto di tesi tra 1 e 3, quindi arrotonda" :
                 "scegli voto commissione, prendi il corrispondente voto di laurea ed arrotonda";
         }
 
@@ -95,9 +95,12 @@ class ReportPDFLaureandoConSimulazione extends ReportPDFLaureando
         $this->pdf->MultiCell(0, 5, 'VOTO DI LAUREA FINALE: ' . $informazioni_calcolo);
     }
 
-    public function genera(): void
+    public function genera(): ReportPDFLaureandoConSimulazione
     {
         parent::genera();
         $this->aggiungiSimulazione();
+
+		return $this;
     }
+	
 }

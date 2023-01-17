@@ -1,6 +1,7 @@
 const SELECT_corso_laurea = document.querySelector("#form-input #corso_laurea");
 const DATE_data_laurea = document.querySelector("#form-input #data_laurea");
 const TEXTAREA_matricole = document.querySelector("#form-input #matricole");
+const CHECKBOX_test = document.querySelector("#form-input #test");
 const BUTTON_crea_report = document.querySelector("#form-input #crea_report");
 const BUTTON_apri_report = document.querySelector("#form-input #apri_report");
 const BUTTON_invia_report = document.querySelector("#form-input #invia_report");
@@ -78,7 +79,8 @@ BUTTON_crea_report.addEventListener("click", (e) => {
         body: JSON.stringify({
             corso_laurea: SELECT_corso_laurea.value,
             data_laurea: DATE_data_laurea.value,
-            matricole: TEXTAREA_matricole.value.split("\n").map((elem) => parseInt(elem.trim()))
+            matricole: TEXTAREA_matricole.value.split("\n").map((elem) => parseInt(elem.trim())),
+			test: CHECKBOX_test.checked
         })
     })
     .then((res) => res.ok ? res.json() : Promise.reject(res))

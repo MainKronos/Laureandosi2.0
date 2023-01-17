@@ -57,6 +57,10 @@ class API
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data = json_decode($json, true);
 
+			if (isset($data["test"]) && $data["test"] == true) {
+				define("TEST", true);
+			}
+
             $path = join(DIRECTORY_SEPARATOR, array(
                 self::$report_path,
                 $data["data_laurea"],
@@ -69,26 +73,26 @@ class API
 
             $laureandi = array();
             try {
-				foreach ($data["matricole"] as $matricola) {
-					$matricola = (int) $matricola;
-					$corso_laurea = $data["corso_laurea"];
-					$data_laurea = date_create($data["data_laurea"]);
+                foreach ($data["matricole"] as $matricola) {
+                    $matricola = (int) $matricola;
+                    $corso_laurea = $data["corso_laurea"];
+                    $data_laurea = date_create($data["data_laurea"]);
 
-					$laureando = $corso_laurea != "t-inf" ?
-						new Laureando($matricola, $corso_laurea, $data_laurea) :
-						new LaureandoInformatica($matricola, $corso_laurea, $data_laurea);
+                    $laureando = $corso_laurea != "t-inf" ?
+                        new Laureando($matricola, $corso_laurea, $data_laurea) :
+                        new LaureandoInformatica($matricola, $corso_laurea, $data_laurea);
 
-					self::$generatore_report::generaReportPDFLaureando($laureando)->salva(
-						$path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf'
-					);
+                    self::$generatore_report::generaReportPDFLaureando($laureando)->salva(
+                        $path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf'
+                    );
 
-					$laureandi[] = $laureando;
-				}
-					self::$generatore_report::generaReportPDFCommissione($laureandi)->salva(
-						$path . DIRECTORY_SEPARATOR . 'all.pdf'
-					);
-					http_response_code(201);
-					return json_encode(array("message" => count($laureandi) . " report creati con successo."));
+                    $laureandi[] = $laureando;
+                }
+                    self::$generatore_report::generaReportPDFCommissione($laureandi)->salva(
+                        $path . DIRECTORY_SEPARATOR . 'all.pdf'
+                    );
+                    http_response_code(201);
+                    return json_encode(array("message" => count($laureandi) . " report creati con successo."));
             } catch (\Exception $e) {
                 http_response_code(400);
                 return json_encode(array("message" => "ERRORE: " . $e->getMessage()));
