@@ -1,27 +1,28 @@
 <?php
 
 namespace test;
+
 ?>
 
 <!DOCTYPE HTML>
 <html lan="it">
 <head>
-	<meta charset="utf-8" />
-	<title>Unit Test</title>
+    <meta charset="utf-8" />
+    <title>Unit Test</title>
 </head>
 <body>
-	<style media="only screen">
-		html{
-			background-color: black;
-		}
-		body {
-			font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-			max-width: 21cm;
-			margin: auto;
-			background-color: white;
-			padding: 20px;
-		}
-	</style>
+    <style media="only screen">
+        html{
+            background-color: #333333;
+        }
+        body {
+            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 21cm;
+            margin: 15px auto;
+            background-color: white;
+            padding: 20px;
+        }
+    </style>
 
 <?php
 
@@ -35,22 +36,22 @@ class UnitTest
 
     public static function run()
     {
-		echo "<h1>Unit Test</h1>";
-		self::setUp();
+        echo "<h1>Unit Test</h1>";
+        self::setUp();
 
-		echo "<h2>Casi di test</h2>";
+        echo "<h2>Casi di test</h2>";
 
-		echo "<pre><code>";
-		print_r(json_encode(self::$casi_test, JSON_PRETTY_PRINT));
-		echo "</code></pre>";
+        echo "<pre><code>";
+        print_r(json_encode(self::$casi_test, JSON_PRETTY_PRINT));
+        echo "</code></pre>";
 
-		echo "<hr>";
+        echo "<hr>";
         self::testGETCorsiDiLaurea();
-		echo "<hr>";
+        echo "<hr>";
         self::testPOSTCreaReport();
-		echo "<hr>";
+        echo "<hr>";
         self::testGETApriReport();
-		echo "<hr>";
+        echo "<hr>";
         self::testInviaReport();
     }
 
@@ -271,8 +272,8 @@ class UnitTest
 
         echo "<details><summary>controllo invio email in file cache: ";
         $string = file_get_contents($cache_file, true);
-        if(assert(json_decode($string, true)[(string)$caso_test["matricola"]], "controllo invio email in file cache")){
-         echo "<span style='color: green;'>OK</span>";
+        if (assert(json_decode($string, true)[(string)$caso_test["matricola"]], "controllo invio email in file cache")) {
+            echo "<span style='color: green;'>OK</span>";
         }
         echo "</summary>";
         echo "<code>$string</code>";
@@ -280,8 +281,8 @@ class UnitTest
 
         echo "<details><summary>controllo doppio invio email: ";
         $ret = self::$API::POSTInviaReport(json_encode($caso_test));
-        if(assert(strpos($ret, "Report gi\u00e0 inviato"), "controllo doppio invio email")){
-         echo "<span style='color: green;'>OK</span>";
+        if (assert(strpos($ret, "Report gi\u00e0 inviato"), "controllo doppio invio email")) {
+            echo "<span style='color: green;'>OK</span>";
         }
         echo "</summary>";
         echo "<code>$ret</code>";

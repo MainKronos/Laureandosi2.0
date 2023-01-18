@@ -139,6 +139,9 @@ class API
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data = json_decode($json, true);
 
+            if (isset($data["test"]) && $data["test"] == true) {
+                define("TEST", true);
+            }
             $data_laurea = $data["data_laurea"];
             $corso_laurea = $data["corso_laurea"];
             $matricola = (int)$data["matricola"];

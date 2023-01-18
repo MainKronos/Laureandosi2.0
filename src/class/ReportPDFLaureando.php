@@ -106,7 +106,9 @@ class ReportPDFLaureando extends ReportPDF
         $this->pdf->SetFont('Arial', '', 12);
         $this->pdf->AddPage();
 
-        $cdl = defined('TEST') ? 'TEST' : $this->parametri_configurazione::getCorsiDiLaurea()[$this->laureando->cdl]["cdl"];
+        $cdl = defined('TEST') ?
+            'TEST' :
+            $this->parametri_configurazione::getCorsiDiLaurea()[$this->laureando->cdl]["cdl"];
         $this->pdf->Cell(0, 5, $cdl, 0, 1, 'C');
         $this->pdf->Cell(0, 5, 'CARRIERA E SIMULAZIONE DEL VOTO DI LAUREA', 0, 1, 'C');
 

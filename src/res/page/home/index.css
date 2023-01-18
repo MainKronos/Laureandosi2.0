@@ -28,39 +28,37 @@ article{
     background-color: var(--background-color);
     border-radius: 4px;
     box-shadow: 0 1px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12), 0 3px 1px -2px rgba(0,0,0,.2);
+    min-width: 540px;
 }
 article > h2 {
     margin: 0;
     padding: 10px;
     border-bottom: 1px solid var(--primary-color);
-	position: relative;
+    position: relative;
 }
 article > h2.loading::before {
-	content: '';
-	height: 1px;
-	width: 100%;
-	position: absolute;
-	bottom: -1px;
-	left: 0;
-	background: linear-gradient(90deg, var(--background-color) 50%, transparent 50%);
-	background-repeat: repeat-x;
-	background-size: 25px 1px;
-	background-position: 0 0;
-	
-	animation: loading 10s linear infinite;
+    content: '';
+    height: 1px;
+    width: 100%;
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    background: linear-gradient(90deg, var(--background-color) 50%, transparent 50%);
+    background-repeat: repeat-x;
+    background-size: 25px 1px;
+    background-position: 0 0;
+
+    animation: loading 10s linear infinite;
 }
 
 @keyframes loading{
-	from {
-		background-position: 0 0;
-	}
-	to {
-		background-position: 100% 0;
-	}
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: 100% 0;
+    }
 }
-
-
-
 
 article > section {
     padding: 15px;
@@ -74,6 +72,8 @@ article > section {
     "b c e"
     "b c f"
     "t c f";
+    grid-template-columns: minmax(30%, 400px) minmax(30%, 400px) fit-content(100%);
+    grid-auto-rows: 1fr;
     gap: 30px;
     align-items: center;
     justify-items: center;
@@ -98,8 +98,27 @@ article > section {
 #form-input textarea {
     resize: none;
 }
+
+@media screen and (max-width: 1470px) {
+    #form-input {
+        grid-template-areas:
+        "a c"
+        "b c"
+        "d c"
+        "e c"
+        "f c"
+        "t c";
+        grid-template-columns: minmax(274px, 50%) minmax(150px, 50%);
+        gap: 0 30px;
+        /* padding: 15px 10px; */
+    }
+}
+
+
+
 button {
     min-width: 200px;
+    width: 100%;
     margin: 10px 0;
     border: 2px solid var(--alt-color);
     background-color: transparent;
@@ -108,6 +127,7 @@ button {
     font-size: 18px;
     padding: 10px;
     cursor: pointer;
+    margin: auto;
 }
 button:hover {
     border-color: var(--primary-color);
@@ -128,6 +148,9 @@ input[type=number], input[type=text], input[type=email], input[type=date], input
     display: block;
     margin: 11px 0 0 0;
     min-width: 250px;
+}
+textarea{
+    min-width: 150px;
 }
 input[type=text]:disabled, input[type=date]:disabled, textarea:disabled, select:disabled, button:disabled {
     border: 2px solid var(--disabled-color);
@@ -211,17 +234,6 @@ input[type=checkbox]:checked + span {
 input[type=checkbox]:disabled + span {
     border-color: #191919;
 }
-
-
-
-
-
-
-
-
-
-
-
 
 #toast {
     visibility: hidden;
