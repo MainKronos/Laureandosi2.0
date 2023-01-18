@@ -87,8 +87,8 @@ class GestoreInvioEmail
         $mail = self::creaEmail($laureando, $report_path . DIRECTORY_SEPARATOR . $laureando->matricola . '.pdf');
 
         try {
-            // $cache[(string)$laureando->matricola] = $mail->send();
-            $cache[(string)$laureando->matricola] = true; // test
+            $cache[(string)$laureando->matricola] = $mail->send();
+            // $cache[(string)$laureando->matricola] = true; // test
         } catch (Exception $e) {
             throw new \Exception($e->errorMessage());
         }
