@@ -26,9 +26,9 @@ class GestioneCarrieraStudente
         $string = file_get_contents(self::$data_path . "/anagrafica_studenti.json");
         $json = json_decode($string, true);
 
-		if(!isset($json[(string) $matricola])){
-			$matricola = "dafault";
-		}
+        if (!isset($json[(string) $matricola])) {
+            $matricola = "dafault";
+        }
 
         // if (!isset($json[(string) $matricola])) {
         //     throw new \Exception("Matricola $matricola non trovata.");
@@ -42,9 +42,9 @@ class GestioneCarrieraStudente
         $string =  file_get_contents(self::$data_path . "/carriera_studenti.json");
         $json = json_decode($string, true);
 
-		if(!isset($json[(string) $matricola])){
-			$matricola = "dafault";
-		}
+        if (!isset($json[(string) $matricola])) {
+            $matricola = "dafault";
+        }
 
         // if (!isset($json[(string) $matricola])) {
         //     throw new \Exception("Matricola $matricola non trovata.");

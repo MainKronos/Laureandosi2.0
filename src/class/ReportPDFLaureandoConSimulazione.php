@@ -4,7 +4,7 @@ namespace laureandosi;
 
 class ReportPDFLaureandoConSimulazione extends ReportPDFLaureando
 {
-	private function aggiungiSimulazione(): void
+    private function aggiungiSimulazione(): void
     {
         $this->pdf->SetFontSize(10);
 
@@ -100,7 +100,6 @@ class ReportPDFLaureandoConSimulazione extends ReportPDFLaureando
         parent::genera();
         $this->aggiungiSimulazione();
 
-		return $this;
+        return $this;
     }
-	
 }

@@ -19,6 +19,6 @@ class ReportPDFCommissione extends ReportPDF
             $report = new ReportPDFLaureandoConSimulazione($laureando, $this->pdf);
             $report->genera();
         }
-		return $this;
+        return $this;
     }
 }

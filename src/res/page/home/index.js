@@ -5,6 +5,7 @@ const CHECKBOX_test = document.querySelector("#form-input #test");
 const BUTTON_crea_report = document.querySelector("#form-input #crea_report");
 const BUTTON_apri_report = document.querySelector("#form-input #apri_report");
 const BUTTON_invia_report = document.querySelector("#form-input #invia_report");
+const H2_titolo = document.querySelector("article > h2");
 
 function showToast(message, error=false)
 {
@@ -27,13 +28,6 @@ function showToast(message, error=false)
     }, 500);
 }
 
-function checkInput()
-{
-
-
-    return true;
-}
-
 document.addEventListener("DOMContentLoaded", () => {
     fetch("?api=GETCorsiDiLaurea")
     .then((res) => res.json())
@@ -50,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
         DATE_data_laurea.disabled = false;
         TEXTAREA_matricole.disabled = false;
         SELECT_corso_laurea.disabled = false;
-
+		H2_titolo.classList.remove("loading");
     });
 });
 
@@ -71,21 +65,29 @@ BUTTON_crea_report.addEventListener("click", (e) => {
         return;
     }
 
-    fetch("?api=POSTCreaReport", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify({
-            corso_laurea: SELECT_corso_laurea.value,
-            data_laurea: DATE_data_laurea.value,
-            matricole: TEXTAREA_matricole.value.split("\n").map((elem) => parseInt(elem.trim())),
-			test: CHECKBOX_test.checked
-        })
-    })
-    .then((res) => res.ok ? res.json() : Promise.reject(res))
-    .then((res) => showToast(res.message))
-    .catch((err) => err.json().then((err) => showToast(err.message, true)));
+	H2_titolo.classList.add("loading");
+
+	(async () => {
+		const res = await fetch("?api=POSTCreaReport", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json"
+			},
+			body: JSON.stringify({
+				corso_laurea: SELECT_corso_laurea.value,
+				data_laurea: DATE_data_laurea.value,
+				matricole: TEXTAREA_matricole.value.split("\n").map((elem) => parseInt(elem.trim())),
+				test: CHECKBOX_test.checked
+			})
+		});
+		H2_titolo.classList.remove("loading");
+		const json = await res.json();
+		if(res.ok){
+			showToast(json.message);
+		}else{
+			showToast(json.message, true);
+		}
+	})();
 });
 
 
@@ -135,9 +137,9 @@ BUTTON_invia_report.addEventListener("click", (e) => {
     BUTTON_invia_report.disabled = true;
     BUTTON_apri_report.disabled = true;
     BUTTON_crea_report.disabled = true;
+	H2_titolo.classList.add("loading");
 
-    async function inviaReport()
-    {
+    (async function inviaReport(){
         const matricola = matricole.shift();
         const res = await fetch("?api=POSTInviaReport", {
             method: "POST",
@@ -166,14 +168,13 @@ BUTTON_invia_report.addEventListener("click", (e) => {
         } else {
             showToast(json.message, true);
         }
-    }
-
-    inviaReport().then(() => {
-        SELECT_corso_laurea.disabled = false;
+    })().then(() => {
+		SELECT_corso_laurea.disabled = false;
         DATE_data_laurea.disabled = false;
         TEXTAREA_matricole.disabled = false;
         BUTTON_invia_report.disabled = false;
         BUTTON_apri_report.disabled = false;
         BUTTON_crea_report.disabled = false;
-    });
+		H2_titolo.classList.remove("loading");
+	});
 });

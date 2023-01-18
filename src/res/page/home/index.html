@@ -15,40 +15,40 @@
 	</header>
 	<main>
 		<article>
-			<h2>Gestione Lauree</h2>
+			<h2 class="loading">Gestione Lauree</h2>
 			<section id="form-input">
 				<div>
-					<select name="corso_laurea" id="corso_laurea" required disabled>
+					<select name="corso_laurea" id="corso_laurea" title="Corso di laurea dei laureandi." required disabled>
 						<option value="">--Seleziona corso Laurea--</option>
 					</select>
 					<label for="corso_laurea">Corso di Laurea</label>
 				</div>
 				<div>
-					<input type="date" name="data_laurea" id="data_laurea" required disabled>
+					<input type="date" name="data_laurea" id="data_laurea" title="Data di laurea dei laureandi." required disabled>
 					<label for="data_laurea">Data di Laurea</label>
 				</div>
 
 				<div>
-					<label for="test">
-					<input type="checkbox" name="test" id="test" required>
-					Test
-					<span></span>
-				</label>
+					<label for="test" title="Se attivo vengono disattivati i controlli del corso di laurea e il filtro esami.">
+						<input type="checkbox" name="test" id="test"  required>
+						Test
+						<span></span>
+					</label>
 				</div>
 
 				<div>
-					<textarea name="matricole" id="matricole" rows="18" required disabled></textarea>
+					<textarea name="matricole" id="matricole" rows="18" title="Elenco dei laureandi." placeholder="1234567&#10;2345678&#10;3456789&#10;..." required disabled></textarea>
 					<label>Matricole</label>
 				</div>
 
 				<div>
-					<button type="button" id="crea_report" disabled>Crea Report</button>
+					<button type="button" id="crea_report" title="Crea i report per ogni laureando e per la commissione." disabled>Crea Report</button>
 				</div>
 				<div>
-					<button type="button" id="apri_report">Apri Report</button>
+					<button type="button" id="apri_report" title="Apre il report per la commissione.">Apri Report</button>
 				</div>
 				<div>
-					<button type="button" id="invia_report">Invia Report</button>
+					<button type="button" id="invia_report" title="Invia per email i report senza simulazione ad ogni laureando.">Invia Report</button>
 				</div>
 
 			</section>

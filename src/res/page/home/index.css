@@ -33,7 +33,35 @@ article > h2 {
     margin: 0;
     padding: 10px;
     border-bottom: 1px solid var(--primary-color);
+	position: relative;
 }
+article > h2.loading::before {
+	content: '';
+	height: 1px;
+	width: 100%;
+	position: absolute;
+	bottom: -1px;
+	left: 0;
+	background: linear-gradient(90deg, var(--background-color) 50%, transparent 50%);
+	background-repeat: repeat-x;
+	background-size: 25px 1px;
+	background-position: 0 0;
+	
+	animation: loading 10s linear infinite;
+}
+
+@keyframes loading{
+	from {
+		background-position: 0 0;
+	}
+	to {
+		background-position: 100% 0;
+	}
+}
+
+
+
+
 article > section {
     padding: 15px;
 }
@@ -132,56 +160,56 @@ input[type=number] + label, input[type=text] + label, input[type=date] + label, 
 }
 
 input[type=checkbox] {
-	opacity: 0;
-	width: 0;
-	height: 0;
+    opacity: 0;
+    width: 0;
+    height: 0;
 }
 label:has(input[type=checkbox]) {
-	position: relative;
-	padding: 0 20px;
-	font-size: 18px;
-	user-select: none;
-	cursor: pointer;
-	margin: 10px 0;
-	color: #bababa;
-	display: block;
+    position: relative;
+    padding: 0 20px;
+    font-size: 18px;
+    user-select: none;
+    cursor: pointer;
+    margin: 10px 0;
+    color: #bababa;
+    display: block;
 }
-  
+
 label:has(input[type=checkbox]:disabled) {
-	color: #4f4f4f;
+    color: #4f4f4f;
 }
 input[type=checkbox]:checked + span::before {
-	content: "✓";
+    content: "✓";
 }
 input[type=checkbox] + span {
-	border-radius: 4px;
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 18px;
-	width: 18px;
-	background-color: transparent;
-	border: 2px solid #4f4f4f;
-	
+    border-radius: 4px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 18px;
+    width: 18px;
+    background-color: transparent;
+    border: 2px solid #4f4f4f;
+
 }
 input[type=checkbox] + span::before{
-	font-weight: 900;
-	text-align: center;
-	content: " ";
-	color: white;
-	height: 15px;
-	width: 15px;
-	font-size: 15px;
-	background-color: transparent;
-	display: block;
-	text-align: center;
+    font-weight: 900;
+    text-align: center;
+    content: " ";
+    color: white;
+    height: 15px;
+    width: 15px;
+    font-size: 15px;
+    background-color: transparent;
+    display: block;
+    text-align: center;
 }
 input[type=checkbox]:checked + span {
-	background-color: #9FA8DA;
-	border-color: #9FA8DA;
+    background-color: #9FA8DA;
+    border-color: #9FA8DA;
 }
 input[type=checkbox]:disabled + span {
-	border-color: #191919;
+    border-color: #191919;
 }
 
 

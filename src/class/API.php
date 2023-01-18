@@ -57,9 +57,9 @@ class API
         if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $data = json_decode($json, true);
 
-			if (isset($data["test"]) && $data["test"] == true) {
-				define("TEST", true);
-			}
+            if (isset($data["test"]) && $data["test"] == true) {
+                define("TEST", true);
+            }
 
             $path = join(DIRECTORY_SEPARATOR, array(
                 self::$report_path,

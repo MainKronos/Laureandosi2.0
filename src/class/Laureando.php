@@ -49,13 +49,12 @@ class Laureando
 
         $carriera_str = $this->gestore_carriera::getCarriera($matricola);
         $carriera = json_decode($carriera_str, true)["Esami"]["Esame"];
-		
+
         $this->esami = array();
         foreach ($carriera as $esame) {
-			
             if (defined('TEST') || $this->parametri_configurazione::getCorsiDiLaurea()[$cdl]["cdl-alt"] == $esame["CORSO"]) {
                 $esame_nome = $esame["DES"];
-                $esame_voto = strcmp($esame["VOTO"],'30  e lode') == 0 ? 33 : (int) $esame["VOTO"];
+                $esame_voto = strcmp($esame["VOTO"], '30  e lode') == 0 ? 33 : (int) $esame["VOTO"];
                 $esame_cfu = $esame["PESO"];
                 $esame_data = $esame["DATA_ESAME"];
                 $esame_in_cdl = defined('TEST') || !in_array($esame_nome, $filtro_esami["esami-non-cdl"]);

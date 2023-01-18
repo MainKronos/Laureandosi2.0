@@ -114,6 +114,6 @@ class ReportPDFLaureando extends ReportPDF
         $this->aggiungiCarriera();
         $this->aggiungiParametriCalcolati();
 
-		return $this;
+        return $this;
     }
 }
