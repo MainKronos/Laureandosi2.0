@@ -4,6 +4,10 @@ namespace laureandosi;
 
 class ReportPDFLaureandoConSimulazione extends ReportPDFLaureando
 {
+    /**
+     * Aggiunge la simulazione di voto di laurea
+     * @return void
+     */
     private function aggiungiSimulazione(): void
     {
         $this->pdf->SetFontSize(10);

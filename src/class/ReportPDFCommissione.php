@@ -2,6 +2,9 @@
 
 namespace laureandosi;
 
+/**
+ * Report PDF per la Commissione contenente i report PDF dei laureandi con simulazione
+ */
 class ReportPDFCommissione extends ReportPDF
 {
     private array $laureandi;

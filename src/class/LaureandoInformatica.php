@@ -13,6 +13,10 @@ class LaureandoInformatica extends Laureando
         }
     }
 
+    /**
+     * Restituisce la media pesata dei voti degli esami informatici
+     * @return float
+     */
     public function getMediaPesataInINF(): float
     {
         return round(array_reduce($this->esami, function ($acc, $esame) {
@@ -22,12 +26,20 @@ class LaureandoInformatica extends Laureando
         }, 0), 3);
     }
 
+    /**
+     * Restituisce true se il laureando ha diritto al bonus
+     * @return bool
+     */
     public function getBonusINF(): bool
     {
         $data_limite = date_create($this->anno_immatricolazione + 4 . "-03-31");
         return !date_diff($this->data_laurea, $data_limite)->invert;
     }
 
+    /**
+     * Restituisce l'esame bonus
+     * @return Esame|null
+     */
     private function getEsameBonus(): ?Esame
     {
         if (!$this->getBonusINF()) {

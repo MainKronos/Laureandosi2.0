@@ -88,11 +88,11 @@ class API
 
                     $laureandi[] = $laureando;
                 }
-                    self::$generatore_report::generaReportPDFCommissione($laureandi)->salva(
-                        $path . DIRECTORY_SEPARATOR . 'all.pdf'
-                    );
-                    http_response_code(201);
-                    return json_encode(array("message" => count($laureandi) . " report creati con successo."));
+                self::$generatore_report::generaReportPDFCommissione($laureandi)->salva(
+                    $path . DIRECTORY_SEPARATOR . 'all.pdf'
+                );
+                http_response_code(201);
+                return json_encode(array("message" => count($laureandi) . " report creati con successo."));
             } catch (\Exception $e) {
                 http_response_code(400);
                 return json_encode(array("message" => "ERRORE: " . $e->getMessage()));

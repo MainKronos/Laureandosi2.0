@@ -86,11 +86,10 @@ class Laureando
         }
     }
 
-   /**
-    * It calculates the weighted average of the exams
-    *
-    * @return float The weighted average of the exams.
-    */
+    /**
+     * Calcola la media pesata degli esami
+     * @return float
+     */
     public function getMediaPesata(): float
     {
         return array_reduce($this->esami, function ($acc, $esame) {
@@ -99,9 +98,8 @@ class Laureando
     }
 
     /**
-     * It returns the sum of the CFU of all the exams that are marked as "average"
-     *
-     * @return int The total number of CFU of the exams that are in the average.
+     * Calcola la somma dei CFU che fanno media del corso di laurea
+     * @return int
      */
     public function getCFUInAVG(): int
     {
@@ -111,9 +109,8 @@ class Laureando
     }
 
     /**
-     * It sums up the cfu of all the exams in the array
-     *
-     * @return int The total number of CFU of the exams in the list.
+     * Calcola la somma dei CFU del corso di laurea
+     * @return int
      */
     public function getCFU(): int
     {

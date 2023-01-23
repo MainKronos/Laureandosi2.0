@@ -7,6 +7,10 @@ class ReportPDFLaureando extends ReportPDF
     protected Laureando $laureando;
     protected ParametriConfigurazione $parametri_configurazione;
 
+    /**
+     * Aggiunge i dati anagrafici del laureando
+     * @return void
+     */
     private function aggiungiDatiAnagrafici(): void
     {
         $is_inf = is_a($this->laureando, LaureandoInformatica::class);
@@ -33,6 +37,10 @@ class ReportPDFLaureando extends ReportPDF
         $this->pdf->Ln(1.5);
     }
 
+    /**
+     * Aggiunge la carriera del laureando (Esami)
+     * @return void
+     */
     private function aggiungiCarriera(): void
     {
         $is_inf = is_a($this->laureando, LaureandoInformatica::class);
@@ -66,6 +74,10 @@ class ReportPDFLaureando extends ReportPDF
         $this->pdf->Ln(3.5);
     }
 
+    /**
+     * Aggiunge i parametri calcolati del laureando (Media, CFU, Bonus)
+     * @return void
+     */
     private function aggiungiParametriCalcolati(): void
     {
         $is_inf = is_a($this->laureando, LaureandoInformatica::class);

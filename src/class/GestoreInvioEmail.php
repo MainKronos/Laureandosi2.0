@@ -15,6 +15,7 @@ class GestoreInvioEmail
     {
     }
 
+
     public static function getInstance(): GestoreInvioEmail
     {
         if (!isset(self::$instance)) {
@@ -35,6 +36,11 @@ class GestoreInvioEmail
         return self::$instance;
     }
 
+    /**
+     * Carica le informazioni riguardanti gli invii delle email
+     * @param string $report_path
+     * @return array
+     */
     private static function caricaCache(string $report_path): array
     {
         $cache_file = $report_path . DIRECTORY_SEPARATOR . self::$cache_filename;
@@ -44,12 +50,24 @@ class GestoreInvioEmail
         return array();
     }
 
+    /**
+     * Salva le informazioni riguardanti gli invii delle email
+     * @param string $report_path
+     * @param array $cache
+     * @return bool
+     */
     private static function salvaCache(string $report_path, array $cache): bool
     {
         $cache_file = $report_path . DIRECTORY_SEPARATOR . self::$cache_filename;
         return file_put_contents($cache_file, json_encode($cache));
     }
 
+    /**
+     * Creazione dell'email da inviare
+     * @param Laureando $laureando
+     * @param string $report
+     * @return PHPMailer
+     */
     private static function creaEmail(Laureando $laureando, string $report): PHPMailer
     {
         $mail = new PHPMailer(true);
@@ -73,6 +91,13 @@ class GestoreInvioEmail
         return $mail;
     }
 
+    /**
+     * Invio dell'email
+     * @param Laureando $laureando
+     * @param string $report_path
+     * @throws \Exception
+     * @return bool
+     */
     public static function inviaEmail(Laureando $laureando, string $report_path): bool
     {
         $cache = self::caricaCache($report_path);

@@ -21,6 +21,10 @@ class ParametriConfigurazione
         return self::$instance;
     }
 
+    /**
+     * Restituisce le informazioni riguardante la lista dei nomi degli esami informatici
+     * @return array
+     */
     public static function getEsamiInformatici(): array
     {
         return json_decode(
@@ -29,6 +33,10 @@ class ParametriConfigurazione
         );
     }
 
+    /**
+     * Restituisce le informazioni riguardante quali esami fanno tolti dal conteggio del voto di laurea
+     * @return array
+     */
     public static function getFiltroEsami(): array
     {
         return json_decode(
@@ -37,6 +45,10 @@ class ParametriConfigurazione
         );
     }
 
+    /**
+     * Restituisce le informazioni riguardante i corsi di laurea
+     * @return array
+     */
     public static function getCorsiDiLaurea(): array
     {
         return json_decode(
