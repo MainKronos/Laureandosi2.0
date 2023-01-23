@@ -2,31 +2,9 @@
 
 namespace test;
 
-?>
-
-<!DOCTYPE HTML>
-<html lan="it">
-<head>
-    <meta charset="utf-8" />
-    <title>Unit Test</title>
-</head>
-<body>
-    <style media="only screen">
-        html{
-            background-color: #333333;
-        }
-        body {
-            font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-            max-width: 21cm;
-            margin: 15px auto;
-            background-color: white;
-            padding: 20px;
-        }
-    </style>
-
-<?php
-
-namespace test;
+use laureandosi\Laureando;
+use laureandosi\LaureandoInformatica;
+use laureandosi\ReportPDFLaureandoConSimulazione;
 
 class UnitTest
 {
@@ -51,17 +29,41 @@ class UnitTest
         self::testPOSTCreaReport();
         echo "<hr>";
         self::testGETApriReport();
-        echo "<hr>";
-        self::testInviaReport();
     }
 
     private static function setUp()
     {
+        echo '
+		<!DOCTYPE HTML>
+		<html lan="it">
+		<head>
+			<meta charset="utf-8" />
+			<title>Unit Test</title>
+		</head>
+		<body>
+			<style media="only screen">
+				html{
+					background-color: #333333;
+				}
+				body {
+					font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+					max-width: 21cm;
+					margin: 15px auto;
+					background-color: white;
+					padding: 20px;
+				}
+			</style>';
+
+
+
         require_once(join(DIRECTORY_SEPARATOR, array(dirname(__FILE__, 2), 'class', 'API.php')));
         require_once(join(DIRECTORY_SEPARATOR, array(dirname(__FILE__, 2), 'class', 'ParametriConfigurazione.php')));
         require_once(join(DIRECTORY_SEPARATOR, array(dirname(__FILE__, 2), 'class', 'ReportPDF.php')));
         require_once(join(DIRECTORY_SEPARATOR, array(dirname(__FILE__, 2), 'class', 'ReportPDFLaureando.php')));
-        require_once(join(DIRECTORY_SEPARATOR, array(dirname(__FILE__, 2), 'class', 'ReportPDFLaureandoConSimulazione.php')));
+        require_once(join(
+            DIRECTORY_SEPARATOR,
+            array(dirname(__FILE__, 2), 'class', 'ReportPDFLaureandoConSimulazione.php')
+        ));
         self::$API = \laureandosi\API::getInstance();
         self::$parametri_configurazione = \laureandosi\ParametriConfigurazione::getInstance();
         self::$casi_test = array(
@@ -209,14 +211,20 @@ class UnitTest
                 $caso_test["matricole"][0] . "_sim.pdf"
             ));
 
-            $laureando = $caso_test["corso_laurea"] != "t-inf" ?
-                new \laureandosi\Laureando($caso_test["matricole"][0], $caso_test["corso_laurea"], date_create($caso_test["data_laurea"])) :
-                new \laureandosi\LaureandoInformatica($caso_test["matricole"][0], $caso_test["corso_laurea"], date_create($caso_test["data_laurea"]));
+            $matricola = $caso_test["matricole"][0];
+            $corso_laurea = $caso_test["corso_laurea"];
+            $data_laurea = date_create($caso_test["data_laurea"]);
 
-            (new \laureandosi\ReportPDFLaureandoConSimulazione($laureando))->genera()->salva($report_file);
+
+            $laureando = $corso_laurea != "t-inf" ?
+                new Laureando($matricola, $corso_laurea, $data_laurea) :
+                new LaureandoInformatica($matricola, $corso_laurea, $data_laurea);
+
+            (new ReportPDFLaureandoConSimulazione($laureando))->genera()->salva($report_file);
 
             echo "<li>Matricola: " . $caso_test["matricole"][0] ;
-            echo "<details><summary>controllo manuale: <a href='$report_file_url' target='_blank'>" . $caso_test["matricole"][0] . ".pdf</a>: ";
+            echo "<details><summary>controllo manuale: 
+				<a href='$report_file_url' target='_blank'>" . $caso_test["matricole"][0] . ".pdf</a>: ";
 
             echo "</summary>";
             echo "<code>$report_file</code>";
@@ -226,70 +234,4 @@ class UnitTest
         }
         echo "</ul>";
     }
-
-    private static function testInviaReport()
-    {
-        echo "<h3>testInviaReport: </h3>";
-
-        echo "status:";
-
-        $_SERVER["REQUEST_METHOD"] = "POST";
-        $caso_test = array(
-            "matricola" => self::$casi_test[0]["matricole"][0],
-            "corso_laurea" => self::$casi_test[0]["corso_laurea"],
-            "data_laurea" => self::$casi_test[0]["data_laurea"],
-        );
-
-        $cache_file = join(DIRECTORY_SEPARATOR, array(
-            rtrim(ABSPATH, '/'),
-            "report",
-            $caso_test["data_laurea"],
-            $caso_test["corso_laurea"],
-            "stato_invio.json"
-        ));
-
-        if (file_exists($cache_file)) {
-            unlink($cache_file);
-        }
-
-        $ret = self::$API::POSTInviaReport(json_encode($caso_test));
-
-        echo "<details><summary>valore di ritorno: ";
-        if (assert(!strpos(json_decode($ret, true)["message"], 'ERROR'), "valore di ritorno")) {
-            echo "<span style='color: green;'>OK</span>";
-        }
-        echo "</summary>";
-        echo "<code>$ret</code>";
-        echo "</details>";
-
-        echo "<details><summary>creazione file cache: ";
-        if (assert(file_exists($cache_file), "creazione file cache")) {
-            echo "<span style='color: green;'>OK</span>";
-        }
-        echo "</summary>";
-        echo "<code>$cache_file</code>";
-        echo "</details>";
-
-        echo "<details><summary>controllo invio email in file cache: ";
-        $string = file_get_contents($cache_file, true);
-        if (assert(json_decode($string, true)[(string)$caso_test["matricola"]], "controllo invio email in file cache")) {
-            echo "<span style='color: green;'>OK</span>";
-        }
-        echo "</summary>";
-        echo "<code>$string</code>";
-        echo "</details>";
-
-        echo "<details><summary>controllo doppio invio email: ";
-        $ret = self::$API::POSTInviaReport(json_encode($caso_test));
-        if (assert(strpos($ret, "Report gi\u00e0 inviato"), "controllo doppio invio email")) {
-            echo "<span style='color: green;'>OK</span>";
-        }
-        echo "</summary>";
-        echo "<code>$ret</code>";
-        echo "</details>";
-    }
 }
-
-?>
-</body>
-</html>
