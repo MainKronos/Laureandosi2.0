@@ -168,7 +168,8 @@ Per questa operazione è necessario aver selezionato il corso di laurea (dal men
 Se l'invio dei report procede correttamente verranno visualizzati i messaggi di conferma del tipo `Report inviato al laureando 65468. 3 report rimanenti. ...` per ogni laureando ogni 10 secondi.\
 Altrimenti verrà visualizzato un messaggio di errore del tipo `Errore: ...` con il relativo messaggio di errore.
 
-> <b style="color:#8a6d3b;">ATTENZIONE</b><br>: Verranno inviate le email **SOLO** ai laureandi inseriti nel box 'Matricole'. 
+> <b style="color:#8a6d3b;"> **Warning** </b><br>
+> Verranno inviate le email **SOLO** ai laureandi inseriti nel box 'Matricole'. 
 
 <hr>
 
