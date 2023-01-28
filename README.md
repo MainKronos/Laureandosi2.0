@@ -35,7 +35,7 @@ La struttura interna di Laureandosi è disposta in questo modo:
  │ 		     └─ filtro_esami.json (file di configurazione del filtro degli esami)
 ```
 
-> <b style="color:#31708f;"> **Note** </b>
+> <b style="color:#31708f;"> **Note** </b><br>
 > I report verranno salvati nella directory principale di WordPress e **NON** in questa cartella.
 
 ### `corsi_di_laurea.json`
@@ -129,7 +129,7 @@ I campi sono i seguenti:
 * `esami-non-avg`: esami che non vanno considerati per il calcolo del voto medio
 * `esami-non-cdl`: esami che non vanno mostrati nel report
 
-> <b style="color:#31708f;"> **Note** </b> Come chiave del corso di laurea è utilizzato il nome abbreviato del corso di laurea. Se si vuole applicare le stesse regole a tutti i laureandi è possibile utilizzare il carattere `*`. Se si vuole applicare delle regole specifiche ad un singolo laureando è possibile utilizzare il numero di matricola del laureando (come in esempio il `1234`).
+> <b style="color:#31708f;"> **Note** </b><br> Come chiave del corso di laurea è utilizzato il nome abbreviato del corso di laurea. Se si vuole applicare le stesse regole a tutti i laureandi è possibile utilizzare il carattere `*`. Se si vuole applicare delle regole specifiche ad un singolo laureando è possibile utilizzare il numero di matricola del laureando (come in esempio il `1234`).
 
 <hr>
 
@@ -144,11 +144,11 @@ Il programma permette di eseguire 3 operazioni:
 
 In caso di dubbi è possibile passare il mouse sopra i vari pulsanti per avere una descrizione dell'operazione.
 
-> <b style="color:#31708f;"> **Note** </b> È possibile riprendere l'utilizzo del programma da qualsiasi punto anche dopo averlo chiuso. Per esempio se si è già creato i report ma non si è ancora aperto il report per la commissione è possibile aprirlo senza dover ricreare tutto.
+> <b style="color:#31708f;"> **Note** </b><br> È possibile riprendere l'utilizzo del programma da qualsiasi punto anche dopo averlo chiuso. Per esempio se si è già creato i report ma non si è ancora aperto il report per la commissione è possibile aprirlo senza dover ricreare tutto.
 
-> <b style="color:#31708f;"> **Note** </b> È stato implementato un meccanismo di registrazione dell'invio email che previene l'invio di email multiple allo stesso laureando. Per ripristinare il meccanismo è necessario cancellare il file `stato_invio.json` situato nella rispettiva cartella dei report.
+> <b style="color:#31708f;"> **Note** </b><br> È stato implementato un meccanismo di registrazione dell'invio email che previene l'invio di email multiple allo stesso laureando. Per ripristinare il meccanismo è necessario cancellare il file `stato_invio.json` situato nella rispettiva cartella dei report.
 
-> <b style="color:#8a6d3b;"> **Warning** </b> Se attivo lo sflag `Test` varrà ignorato il filtro esami e il controllo corso di laurea.
+> <b style="color:#8a6d3b;"> **Warning** </b><br> Se attivo lo sflag `Test` varrà ignorato il filtro esami e il controllo corso di laurea.
 
 ### Op. Crea Report
 
@@ -168,7 +168,7 @@ Per questa operazione è necessario aver selezionato il corso di laurea (dal men
 Se l'invio dei report procede correttamente verranno visualizzati i messaggi di conferma del tipo `Report inviato al laureando 65468. 3 report rimanenti. ...` per ogni laureando ogni 10 secondi.\
 Altrimenti verrà visualizzato un messaggio di errore del tipo `Errore: ...` con il relativo messaggio di errore.
 
-> <b style="color:#8a6d3b;">ATTENZIONE</b>: Verranno inviate le email **SOLO** ai laureandi inseriti nel box 'Matricole'. 
+> <b style="color:#8a6d3b;">ATTENZIONE</b><br>: Verranno inviate le email **SOLO** ai laureandi inseriti nel box 'Matricole'. 
 
 <hr>
 
